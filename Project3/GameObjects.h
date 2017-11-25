@@ -1,5 +1,5 @@
 //
-//  GameScene.h
+//  GameObjects.h
 //  Project3
 //
 //  Created by Barnaby Ayriss [el16ba] on 23/11/2017.
@@ -7,9 +7,9 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "GameObjects.h"
-#import "player.h"
 
-@interface GameScene : SKScene
+@interface GameObjects : SKSpriteNode
+
++(id)platform;
 
 @end

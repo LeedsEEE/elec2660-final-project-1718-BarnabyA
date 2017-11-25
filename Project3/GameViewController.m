@@ -15,6 +15,7 @@
     [super viewDidLoad];
 
     // Load the SKScene from 'GameScene.sks'
+    NSLog(@"GameViewController - GameScene node beninging init");
     GameScene *scene = (GameScene *)[SKScene nodeWithFileNamed:@"GameScene"];
     
     // Set the scale mode to scale to fit the window
@@ -22,15 +23,17 @@
     
     SKView *skView = (SKView *)self.view;
     
+    //skView.bounds.size = CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
     // Present the scene
     [skView presentScene:scene];
     
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
+    NSLog(@"GameViewController - GameScene initialized");
 }
 
 - (BOOL)shouldAutorotate {
-    return YES;
+    return NO;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {

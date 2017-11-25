@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		944D34FA1FC8D2A40041B59C /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 944D34F91FC8D2A40041B59C /* Player.m */; };
 		9465313E1FC73F98007A33B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465313D1FC73F98007A33B8 /* main.m */; };
 		946531411FC73F98007A33B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531401FC73F98007A33B8 /* AppDelegate.m */; };
 		946531431FC73F98007A33B8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 946531421FC73F98007A33B8 /* GameScene.sks */; };
@@ -18,6 +19,7 @@
 		946531531FC73F98007A33B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 946531511FC73F98007A33B8 /* LaunchScreen.storyboard */; };
 		9465315E1FC73F98007A33B8 /* Project3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465315D1FC73F98007A33B8 /* Project3Tests.m */; };
 		946531691FC73F99007A33B8 /* Project3UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531681FC73F99007A33B8 /* Project3UITests.m */; };
+		946531781FC74F31007A33B8 /* GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531771FC74F31007A33B8 /* GameObjects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		944D34F81FC8D2A30041B59C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		944D34F91FC8D2A40041B59C /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		946531391FC73F98007A33B8 /* Project3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9465313D1FC73F98007A33B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9465313F1FC73F98007A33B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 		946531641FC73F99007A33B8 /* Project3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Project3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		946531681FC73F99007A33B8 /* Project3UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Project3UITests.m; sourceTree = "<group>"; };
 		9465316A1FC73F99007A33B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		946531761FC74F31007A33B8 /* GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjects.h; sourceTree = "<group>"; };
+		946531771FC74F31007A33B8 /* GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjects.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,10 @@
 				946531401FC73F98007A33B8 /* AppDelegate.m */,
 				946531421FC73F98007A33B8 /* GameScene.sks */,
 				946531441FC73F98007A33B8 /* Actions.sks */,
+				946531761FC74F31007A33B8 /* GameObjects.h */,
+				946531771FC74F31007A33B8 /* GameObjects.m */,
+				944D34F81FC8D2A30041B59C /* Player.h */,
+				944D34F91FC8D2A40041B59C /* Player.m */,
 				946531461FC73F98007A33B8 /* GameScene.h */,
 				946531471FC73F98007A33B8 /* GameScene.m */,
 				946531491FC73F98007A33B8 /* GameViewController.h */,
@@ -290,6 +300,8 @@
 				946531411FC73F98007A33B8 /* AppDelegate.m in Sources */,
 				946531481FC73F98007A33B8 /* GameScene.m in Sources */,
 				9465313E1FC73F98007A33B8 /* main.m in Sources */,
+				944D34FA1FC8D2A40041B59C /* Player.m in Sources */,
+				946531781FC74F31007A33B8 /* GameObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +533,7 @@
 				9465316F1FC73F99007A33B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		946531701FC73F99007A33B8 /* Build configuration list for PBXNativeTarget "Project3Tests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +542,7 @@
 				946531721FC73F99007A33B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		946531731FC73F99007A33B8 /* Build configuration list for PBXNativeTarget "Project3UITests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +551,7 @@
 				946531751FC73F99007A33B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
