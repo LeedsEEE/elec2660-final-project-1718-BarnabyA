@@ -12,7 +12,7 @@
 
 +(id)player
 {
-    Player *player = [Player spriteNodeWithColor:[UIColor orangeColor] size:CGSizeMake(30, 30)];
+    Player *player = [Player spriteNodeWithColor:[UIColor orangeColor] size:CGSizeMake(50, 50)];
     return player;
 }
 
