@@ -10,16 +10,24 @@
 
 @implementation Player
 
+
 +(id)player
+
 {
     Player *player = [Player spriteNodeWithColor:[UIColor orangeColor] size:CGSizeMake(50, 50)];
     return player;
 }
 
--(void)moveXPositive
+-(void)moveXPositive:(float)speed
 {
-    SKAction *moveXPositive = [SKAction moveBy:CGVectorMake(10, 0) duration:0];
+    SKAction *moveXPositive = [SKAction moveBy:CGVectorMake(speed, 0) duration:0];
     [self runAction:moveXPositive];
-    NSLog(@"Player/moveXPositive- func ran");
+}
+
+-(void)jump
+{
+        SKAction *jump = [SKAction applyForce:CGVectorMake(0,300) duration:0.5];
+        [self runAction:jump];
+        NSLog(@"Jump");
 }
 @end

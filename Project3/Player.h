@@ -10,7 +10,10 @@
 
 @interface Player : SKSpriteNode
 
+//@property Ismoving:bool;
+
 +(id)player;
 
--(void)moveXPositive;
+-(void)moveXPositive:(float)speed;
+-(void)jump;
 @end

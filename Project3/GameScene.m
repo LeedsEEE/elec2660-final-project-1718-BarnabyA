@@ -11,8 +11,12 @@
 @implementation GameScene {
     //Defining nodes in scene
     GameObjects *ground;
+    GameObjects *platform0;
+    GameObjects *platform1;
     Player *player;
     SKCameraNode *_nodeCamera;
+    
+    
 }
 
 - (void)didMoveToView:(SKView *)view {
@@ -28,54 +32,78 @@
     
     //Creating nodes in scene
     ground = [GameObjects platform];
+    platform0 = [GameObjects platform];
+    platform1 = [GameObjects platform];
     player = [Player player];
     
     
     //setting node names
     ground.name = @"ground";
     player.name = @"player";
+    platform0.name = @"platform0";
+    platform1.name = @"platform1";
+    
     
     //setting node sizes
-    
-    //ground.size = CGSizeMake(screenRect.size.width,20);
-    
     ground.size = CGSizeMake(self.frame.size.width,30);
+    platform0.size = CGSizeMake(150, ground.size.height);
+    platform1.size = platform0.size;
+    
     
     //setting start positions of nodes
-    
     NSLog(@"GameScean/didMoveToView- frame %.0f,%0.f", self.frame.size.width,self.frame.size.height);
     
     ground.position = CGPointMake(0, -player.size.height/2 - ground.size.height/2);
+    platform0.position = CGPointMake(ground.position.x + ground.size.width/2 + platform0.size.width/2, ground.position.y + 100);
+    platform1.position = CGPointMake(platform0.position.x + platform0.size.width, ground.position.y);
     
     //setting physics of nodes
     ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
     ground.physicsBody.dynamic = false;
+    platform0.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform0.size];
+    platform0.physicsBody.dynamic = false;
+    platform1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform1.size];
+    platform1.physicsBody.dynamic = false;
+    //platform0.physicsBody = platform1.physicsBody = ground.physicsBody;
+    
     player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:player.size];
     player.physicsBody.dynamic = true;
+    player.physicsBody.allowsRotation = false;
     
     //adding nodes to view
     [self addChild:player];
     NSLog(@"GameScean/didMoveToView- player node added");
     [self addChild:ground];
     NSLog(@"GameScean/didMoveToView- ground node added");
+    [self addChild:platform0];
+    NSLog(@"GameScean/didMoveToView- platform0 node added");
+    [self addChild:platform1];
+    NSLog(@"GameScean/didMoveToView- platform1 node added");
     
     //locks camera to track player sprite
     [_nodeCamera moveToParent:player];
-
+    NSLog(@"GameScean/didMoveToView- Camera tracking set");
+    _nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3, ground.position.y);
+    NSLog(@"GameScean/didMoveToView- Camera position set");
     
-    _nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3,ground.position.y + self.frame.size.height/2 - ground.size.height/2);
-    //_nodeCamera.parent.position.y + self.frame.size.height/2 - player.size.height - ground.size.height
+    
+    //ground.position.y + self.frame.size.height/2 - ground.size.height/2
 }
     
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
     //moves player to the right when screen is touched
     Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
-    [playerTemp moveXPositive];
-
+    //[playerTemp moveXPositive];
+    [playerTemp jump];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
+    Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
+    [playerTemp moveXPositive:5];
+    
+    
+    
     // Called before each frame is rendered
     //Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
     //self.camera.position = playerTemp.position;
@@ -84,7 +112,8 @@
 
 -(void)didSimulatePhysics
 {
-    _nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3,ground.position.y + self.frame.size.height/2 - ground.size.height/2);
+    
+    //_nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3,ground.position.y + self.frame.size.height/2 - ground.size.height/2);
 }
 
 
