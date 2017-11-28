@@ -11,51 +11,49 @@
 @implementation GameScene {
     //Defining nodes in scene
     GameObjects *ground;
-    GameObjects *platform0;
-    GameObjects *platform1;
+    
     Player *player;
     SKCameraNode *_nodeCamera;
-    
-    
 }
 
 - (void)didMoveToView:(SKView *)view {
-    // Setting up Scene
     
+    GameObjects *platform0;
+    GameObjects *platform1;
     
+    NSLog(@"GameScean/didMoveToView- frame sizes %.0f,%0.f", self.frame.size.width,self.frame.size.height);
+    
+    //getting camera node from sks scene
     _nodeCamera = (SKCameraNode *)[self childNodeWithName:@"nodeCamera"];
     
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    NSLog(@"GameScean - ScreenRect = %.2f, %.2f", screenRect.size.width,screenRect.size.height);
+    //setting refence point for drawing other nodes
     self.anchorPoint = CGPointMake(0.5, 0.5);
     
-    
-    //Creating nodes in scene
+    //Creating instances of nodes in scene
     ground = [GameObjects platform];
     platform0 = [GameObjects platform];
     platform1 = [GameObjects platform];
     player = [Player player];
-    
+    NSLog(@"GameScean/didMoveToView- gameplay nodes instances created");
     
     //setting node names
     ground.name = @"ground";
     player.name = @"player";
     platform0.name = @"platform0";
     platform1.name = @"platform1";
-    
+    NSLog(@"GameScean/didMoveToView- gameplay node's named");
     
     //setting node sizes
     ground.size = CGSizeMake(self.frame.size.width,30);
     platform0.size = CGSizeMake(150, ground.size.height);
     platform1.size = platform0.size;
-    
+    NSLog(@"GameScean/didMoveToView- gameplay node's sizes set");
     
     //setting start positions of nodes
-    NSLog(@"GameScean/didMoveToView- frame %.0f,%0.f", self.frame.size.width,self.frame.size.height);
-    
     ground.position = CGPointMake(0, -player.size.height/2 - ground.size.height/2);
     platform0.position = CGPointMake(ground.position.x + ground.size.width/2 + platform0.size.width/2, ground.position.y + 100);
     platform1.position = CGPointMake(platform0.position.x + platform0.size.width, ground.position.y);
+    NSLog(@"GameScean/didMoveToView- gameplay node's starting positions");
     
     //setting physics of nodes
     ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
@@ -64,7 +62,9 @@
     platform0.physicsBody.dynamic = false;
     platform1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform1.size];
     platform1.physicsBody.dynamic = false;
-    //platform0.physicsBody = platform1.physicsBody = ground.physicsBody;
+    
+    NSLog(@"GameScean/didMoveToView- gameplay node physics set");
+    
     
     player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:player.size];
     player.physicsBody.dynamic = true;
@@ -72,69 +72,40 @@
     
     //adding nodes to view
     [self addChild:player];
-    NSLog(@"GameScean/didMoveToView- player node added");
+    NSLog(@"GameScean/didMoveToView- player node added to frame");
     [self addChild:ground];
-    NSLog(@"GameScean/didMoveToView- ground node added");
+    NSLog(@"GameScean/didMoveToView- ground node added to frame");
     [self addChild:platform0];
-    NSLog(@"GameScean/didMoveToView- platform0 node added");
+    NSLog(@"GameScean/didMoveToView- platform0 node added to frame");
     [self addChild:platform1];
-    NSLog(@"GameScean/didMoveToView- platform1 node added");
+    NSLog(@"GameScean/didMoveToView- platform1 node added to frame");
     
-    //locks camera to track player sprite
+    //locks camera to track player sprite by assiging player as its parent node
     [_nodeCamera moveToParent:player];
     NSLog(@"GameScean/didMoveToView- Camera tracking set");
     _nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3, ground.position.y);
     NSLog(@"GameScean/didMoveToView- Camera position set");
-    
-    
-    //ground.position.y + self.frame.size.height/2 - ground.size.height/2
+
 }
     
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
-    //moves player to the right when screen is touched
+    //Causes player to jump when screen is touched
     Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
-    //[playerTemp moveXPositive];
     [playerTemp jump];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
+    //Moves the player to the right upon each update
     Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
     [playerTemp moveXPositive:5];
-    
-    
-    
-    // Called before each frame is rendered
-    //Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
-    //self.camera.position = playerTemp.position;
     
 }
 
 -(void)didSimulatePhysics
 {
-    
-    //_nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3,ground.position.y + self.frame.size.height/2 - ground.size.height/2);
-}
 
-
-/*
--(void)centerOnNode:(SKNode *)node
-{
-    CGPoint positionInScene = [self convertPoint:node.position fromNode:node.parent];
-    _testCam.position = CGPointMake(_testCam.position.x - positionInScene.x, _testCam.position.y - positionInScene.y);
 }
-*/
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 
     //test logs

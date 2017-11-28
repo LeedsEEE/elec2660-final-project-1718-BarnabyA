@@ -20,6 +20,7 @@
 		9465315E1FC73F98007A33B8 /* Project3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465315D1FC73F98007A33B8 /* Project3Tests.m */; };
 		946531691FC73F99007A33B8 /* Project3UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531681FC73F99007A33B8 /* Project3UITests.m */; };
 		946531781FC74F31007A33B8 /* GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531771FC74F31007A33B8 /* GameObjects.m */; };
+		9471F4521FCD6F1F0097C6CF /* Platforms.m in Sources */ = {isa = PBXBuildFile; fileRef = 9471F4511FCD6F1F0097C6CF /* Platforms.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		9465316A1FC73F99007A33B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		946531761FC74F31007A33B8 /* GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjects.h; sourceTree = "<group>"; };
 		946531771FC74F31007A33B8 /* GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjects.m; sourceTree = "<group>"; };
+		9471F4501FCD6F1F0097C6CF /* Platforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platforms.h; sourceTree = "<group>"; };
+		9471F4511FCD6F1F0097C6CF /* Platforms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platforms.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				946531441FC73F98007A33B8 /* Actions.sks */,
 				946531761FC74F31007A33B8 /* GameObjects.h */,
 				946531771FC74F31007A33B8 /* GameObjects.m */,
+				9471F4501FCD6F1F0097C6CF /* Platforms.h */,
+				9471F4511FCD6F1F0097C6CF /* Platforms.m */,
 				944D34F81FC8D2A30041B59C /* Player.h */,
 				944D34F91FC8D2A40041B59C /* Player.m */,
 				946531461FC73F98007A33B8 /* GameScene.h */,
@@ -301,6 +306,7 @@
 				946531481FC73F98007A33B8 /* GameScene.m in Sources */,
 				9465313E1FC73F98007A33B8 /* main.m in Sources */,
 				944D34FA1FC8D2A40041B59C /* Player.m in Sources */,
+				9471F4521FCD6F1F0097C6CF /* Platforms.m in Sources */,
 				946531781FC74F31007A33B8 /* GameObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
