@@ -21,6 +21,8 @@
     NSLog(@"GameObjects - platforms defined");
     return platform;
 }
-
+//-(NSMutableArray *)loadPlatform{
+    
+//R}
 
 @end

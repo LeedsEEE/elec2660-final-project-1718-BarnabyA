@@ -14,6 +14,7 @@
 
 +(id)player;
 
--(void)moveXPositive:(float)speed;
+-(void)moveXPositiveForever:(float)speed;
 -(void)jump;
+
 @end

@@ -18,16 +18,17 @@
     return player;
 }
 
--(void)moveXPositive:(float)speed
+-(void)moveXPositiveForever:(float)speed
 {
-    SKAction *moveXPositive = [SKAction moveBy:CGVectorMake(speed, 0) duration:0];
-    [self runAction:moveXPositive];
+    SKAction *moveXPositiveForever = [SKAction repeatActionForever:[SKAction moveBy:CGVectorMake(speed, 0) duration:0.01]];
+    [self runAction:moveXPositiveForever];
 }
 
 -(void)jump
 {
-        SKAction *jump = [SKAction applyForce:CGVectorMake(0,300) duration:0.5];
+        //SKAction *jump = [SKAction applyForce:CGVectorMake(0,300) duration:0.5];
+        SKAction *jump = [SKAction applyImpulse:CGVectorMake(0,120) duration: 0.5];
         [self runAction:jump];
-        NSLog(@"Jump");
+        NSLog(@"Player/jump- jump impulse of 120 applied");
 }
 @end
