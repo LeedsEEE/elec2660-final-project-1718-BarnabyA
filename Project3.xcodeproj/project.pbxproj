@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		942849071FCD79D100DF05B4 /* Platforms.m in Sources */ = {isa = PBXBuildFile; fileRef = 942849061FCD79D100DF05B4 /* Platforms.m */; };
+		9428490A1FCD99A800DF05B4 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 942849091FCD99A800DF05B4 /* Platform.m */; };
 		944D34FA1FC8D2A40041B59C /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 944D34F91FC8D2A40041B59C /* Player.m */; };
 		9465313E1FC73F98007A33B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465313D1FC73F98007A33B8 /* main.m */; };
 		946531411FC73F98007A33B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531401FC73F98007A33B8 /* AppDelegate.m */; };
@@ -41,8 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		942849051FCD79D100DF05B4 /* Platforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platforms.h; path = ../Platforms.h; sourceTree = "<group>"; };
-		942849061FCD79D100DF05B4 /* Platforms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platforms.m; path = ../Platforms.m; sourceTree = "<group>"; };
+		942849081FCD99A800DF05B4 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
+		942849091FCD99A800DF05B4 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
 		944D34F81FC8D2A30041B59C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		944D34F91FC8D2A40041B59C /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		946531391FC73F98007A33B8 /* Project3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,8 +123,8 @@
 				946531441FC73F98007A33B8 /* Actions.sks */,
 				946531761FC74F31007A33B8 /* GameObjects.h */,
 				946531771FC74F31007A33B8 /* GameObjects.m */,
-				942849051FCD79D100DF05B4 /* Platforms.h */,
-				942849061FCD79D100DF05B4 /* Platforms.m */,
+				942849081FCD99A800DF05B4 /* Platform.h */,
+				942849091FCD99A800DF05B4 /* Platform.m */,
 				944D34F81FC8D2A30041B59C /* Player.h */,
 				944D34F91FC8D2A40041B59C /* Player.m */,
 				946531461FC73F98007A33B8 /* GameScene.h */,
@@ -303,10 +303,10 @@
 			files = (
 				9465314B1FC73F98007A33B8 /* GameViewController.m in Sources */,
 				946531411FC73F98007A33B8 /* AppDelegate.m in Sources */,
+				9428490A1FCD99A800DF05B4 /* Platform.m in Sources */,
 				946531481FC73F98007A33B8 /* GameScene.m in Sources */,
 				9465313E1FC73F98007A33B8 /* main.m in Sources */,
 				944D34FA1FC8D2A40041B59C /* Player.m in Sources */,
-				942849071FCD79D100DF05B4 /* Platforms.m in Sources */,
 				946531781FC74F31007A33B8 /* GameObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

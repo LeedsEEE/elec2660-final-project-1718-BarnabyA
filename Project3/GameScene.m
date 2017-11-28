@@ -11,9 +11,14 @@
 @implementation GameScene {
     //Defining nodes in scene
     GameObjects *ground;
-    
     Player *player;
     SKCameraNode *_nodeCamera;
+    int GameState;
+    /* Game state
+        0: Not Started
+        1: Started
+        2: End Fail
+    */
 }
 
 - (void)didMoveToView:(SKView *)view {
@@ -23,7 +28,7 @@
 }
 
 -(void)initialize{
-    NSLog(@"GameScean/didMoveToView- frame sizes %.0f,%0.f", self.frame.size.width,self.frame.size.height);
+    NSLog(@"GameScean/initialize- frame sizes %.0f,%0.f", self.frame.size.width,self.frame.size.height);
     
     //getting camera node from sks scene
     _nodeCamera = (SKCameraNode *)[self childNodeWithName:@"nodeCamera"];
@@ -34,51 +39,51 @@
     //Creating instances of nodes in scene
     ground = [GameObjects platform];
     player = [Player player];
-    NSLog(@"GameScean/didMoveToView- gameplay nodes instances created");
+    NSLog(@"GameScean/initialize- gameplay nodes instances created");
     
     //setting node names
     ground.name = @"ground";
     player.name = @"player";
-    NSLog(@"GameScean/didMoveToView- gameplay node's named");
+    NSLog(@"GameScean/initialize- gameplay node's named");
     
     //setting node sizes
     ground.size = CGSizeMake(self.frame.size.width,30);
     
-    NSLog(@"GameScean/didMoveToView- gameplay node's sizes set");
+    NSLog(@"GameScean/initialize- gameplay node's sizes set");
     
     //setting start positions of nodes
     ground.position = CGPointMake(0, -player.size.height/2 - ground.size.height/2);
-    NSLog(@"GameScean/didMoveToView- gameplay node's starting positions");
+    NSLog(@"GameScean/initialize- gameplay node's starting positions");
     
     //setting physics of nodes
     ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
     ground.physicsBody.dynamic = false;
-    NSLog(@"GameScean/didMoveToView- gameplay node physics set");
+    NSLog(@"GameScean/initialize- gameplay node physics set");
     
     player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:player.size];
     player.physicsBody.dynamic = true;
     player.physicsBody.allowsRotation = false;
-    NSLog(@"GameScean/didMoveToView- player node physics set");
+    NSLog(@"GameScean/initialize- player node physics set");
     
     //adding nodes to view
     [self addChild:player];
-    NSLog(@"GameScean/didMoveToView- player node added to frame");
+    NSLog(@"GameScean/initialize- player node added to frame");
     [self addChild:ground];
-    NSLog(@"GameScean/didMoveToView- ground node added to frame");
+    NSLog(@"GameScean/initialize- ground node added to frame");
     
     
     //locks camera to track player sprite by assiging player as its parent node
     [_nodeCamera moveToParent:player];
-    NSLog(@"GameScean/didMoveToView- Camera tracking set");
+    NSLog(@"GameScean/initialize- Camera tracking set");
     _nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3, ground.position.y);
-    NSLog(@"GameScean/didMoveToView- Camera position set");
+    NSLog(@"GameScean/initialize- Camera position set");
     
     //Begins the players movement through the level with a set speed
-    [player moveXPositiveForever:1];
+    
 }
-
-
 -(void)loadTestLevel{
+    //loades a basic level for testing
+    
     GameObjects *platform0;
     GameObjects *platform1;
     
@@ -91,8 +96,10 @@
     platform0.size = CGSizeMake(150, ground.size.height);
     platform1.size = platform0.size;
     
-    platform0.position = CGPointMake(ground.position.x + ground.size.width/2 + platform0.size.width/2, ground.position.y + 100);
-    platform1.position = CGPointMake(platform0.position.x + platform0.size.width, ground.position.y);
+    platform0.position = CGPointMake(ground.position.x + ground.size.width/2 + platform0.size.width/2,
+                                     ground.position.y + 100);
+    platform1.position = CGPointMake(platform0.position.x + platform0.size.width,
+                                     ground.position.y);
     
     platform0.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform0.size];
     platform0.physicsBody.dynamic = false;
@@ -100,27 +107,40 @@
     platform1.physicsBody.dynamic = false;
     
     [self addChild:platform0];
-    NSLog(@"GameScean/didMoveToView- platform0 node added to frame");
+    NSLog(@"GameScean/loadTestLevel- platform0 node added to frame");
     [self addChild:platform1];
-    NSLog(@"GameScean/didMoveToView- platform1 node added to frame");
+    NSLog(@"GameScean/loadTestLevel- platform1 node added to frame");
 }
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-
     //Causes player to jump when screen is touched
     Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
-    [playerTemp jump];
-}
-
--(void)update:(CFTimeInterval)currentTime {
-    //Moves the player to the right upon each update
-    Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
-    //[playerTemp moveXPositive:5];
+    
+    if(GameState == 0){
+        NSLog(@"GameScean/touchesBegan- Game start");
+        [playerTemp moveXPositiveForever:1];
+        GameState = 1;
+    } else if (GameState == 1){
+        NSLog(@"GameScean/touchesBegan- Jump");
+        [playerTemp jump];
+    }else if (GameState > 1){
+        NSLog(@"GameScean/touchesBegan- ERROR invalid game state");
+    }
     
 }
 
+-(void)update:(CFTimeInterval)currentTime {
+    
+}
 
+-(void)clearStage{
+    NSLog(@"claerStage");
+}
+
+-(void)endGame{
+    NSLog(@"endGame");
+}
 -(void)didSimulatePhysics
 {
 
@@ -158,33 +178,7 @@
      */
 
 /*
-  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Defualt code
-/*
  SKShapeNode *_spinnyNode;
  SKLabelNode *_label;
  }
