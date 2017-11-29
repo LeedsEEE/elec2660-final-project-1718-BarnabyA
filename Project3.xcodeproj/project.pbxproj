@@ -22,7 +22,6 @@
 		946531781FC74F31007A33B8 /* GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531771FC74F31007A33B8 /* GameObjects.m */; };
 		F5B855A31FCE346B000ADDBE /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A21FCE346B000ADDBE /* Level.m */; };
 		F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */; };
-		F5B855AB1FCE4888000ADDBE /* LevelGeneration.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855AA1FCE4888000ADDBE /* LevelGeneration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +70,6 @@
 		F5B855A21FCE346B000ADDBE /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		F5B855A41FCE353D000ADDBE /* DataModelLevels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelLevels.h; sourceTree = "<group>"; };
 		F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelLevels.m; sourceTree = "<group>"; };
-		F5B855A91FCE4888000ADDBE /* LevelGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGeneration.h; sourceTree = "<group>"; };
-		F5B855AA1FCE4888000ADDBE /* LevelGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelGeneration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +126,6 @@
 				946531441FC73F98007A33B8 /* Actions.sks */,
 				F5B855A41FCE353D000ADDBE /* DataModelLevels.h */,
 				F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */,
-				F5B855A91FCE4888000ADDBE /* LevelGeneration.h */,
-				F5B855AA1FCE4888000ADDBE /* LevelGeneration.m */,
 				F5B855A11FCE346B000ADDBE /* Level.h */,
 				F5B855A21FCE346B000ADDBE /* Level.m */,
 				946531761FC74F31007A33B8 /* GameObjects.h */,
@@ -318,7 +313,6 @@
 				946531481FC73F98007A33B8 /* GameScene.m in Sources */,
 				9465313E1FC73F98007A33B8 /* main.m in Sources */,
 				944D34FA1FC8D2A40041B59C /* Player.m in Sources */,
-				F5B855AB1FCE4888000ADDBE /* LevelGeneration.m in Sources */,
 				946531781FC74F31007A33B8 /* GameObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

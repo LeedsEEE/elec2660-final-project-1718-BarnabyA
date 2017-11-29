@@ -15,5 +15,5 @@
 @property (strong, nonatomic) UIColor * colour;
 
 -(Level *)init;
-
+-(NSMutableArray *)generateGameObjects;
 @end

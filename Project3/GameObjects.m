@@ -14,7 +14,6 @@
 +(id)platform
 {
     GameObjects *platform = [GameObjects spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(100, 100)];
-    
     platform.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform.size];
     platform.physicsBody.dynamic = NO;
     

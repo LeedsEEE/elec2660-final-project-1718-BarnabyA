@@ -14,20 +14,10 @@
     Level *level1 = [Level init];
     level1.colour = [UIColor yellowColor];
     level1.numGameObjects = 10;
-
+    level1.gameObjectsArray = [level1 generateGameObjects];
     //level1.gameObjectsArray = [DataModelLevels GeneratePlatforms:level1.colour];
 
     return level1;
-}
-
--(NSMutableArray *)GeneratePlatforms:(UIColor*)colour{
-    NSMutableArray *gameObjects = [[NSMutableArray alloc] init];
-    
-    return gameObjects;
-}
-
--(void)test{
-    NSLog(@"Test");
 }
 
 @end

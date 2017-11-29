@@ -14,9 +14,27 @@
     Level *level;
     level.numGameObjects = 0;
     level.colour = [UIColor greenColor];
-    level.gameObjectsArray = [[NSMutableArray alloc] init];
-    
+    level.gameObjectsArray = [self generateGameObjects];
     return level;
+}
+
+-(NSMutableArray *)generateGameObjects{
+    NSLog(@"Level/generateGameObjects- Running");
+    GameObjects *tempPlatform = [GameObjects platform];
+    NSMutableArray *gameObjects = [[NSMutableArray alloc] init];
+    for (int i = 0; i < self.numGameObjects ; i++) {
+        tempPlatform.name = [NSString stringWithFormat:@"gameObjectPlatform%i",i];
+        tempPlatform.color = self.colour;
+        
+//  tempplatfrom.size =
+        
+        
+    
+    }
+    
+    
+    
+    return gameObjects;
 }
 
 @end

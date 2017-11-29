@@ -15,7 +15,4 @@
 
 @property (strong,nonatomic) NSMutableArray * levelsArray;  // holds arays of the levels
 
--(NSMutableArray *)GeneratePlatforms:(UIColor*)colour;
--(void)test;
-
 @end
