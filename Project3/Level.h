@@ -10,9 +10,9 @@
 #import "GameObjects.h"
 @interface Level : NSObject
 
-@property (atomic) int numGameObjects;
+@property (atomic) int numGameObjects; // holds the number of platforms that will be in the level
 @property (strong,nonatomic) NSMutableArray * gameObjectsArray;  // holds positions
-@property (strong, nonatomic) UIColor * colour;
+@property (strong, nonatomic) UIColor * colour; // colds the colour the platforms will be in the level
 
 -(Level *)init;
 -(NSMutableArray *)generateGameObjects;

@@ -23,7 +23,7 @@
 
 - (void)didMoveToView:(SKView *)view {
     [self initialize];
-    [self loadTestLevel];
+    //[self loadTestLevel];
 
 }
 
@@ -81,6 +81,8 @@
     //Begins the players movement through the level with a set speed
     
 }
+
+
 -(void)loadTestLevel{
     //loades a basic level for testing
     
@@ -121,6 +123,7 @@
         NSLog(@"GameScean/touchesBegan- Game start");
         [playerTemp moveXPositiveForever:1];
         GameState = 1;
+        
     } else if (GameState == 1){
         NSLog(@"GameScean/touchesBegan- Jump");
         [playerTemp jump];

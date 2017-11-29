@@ -9,6 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "GameObjects.h"
 #import "player.h"
+#import "DataModelLevels.h"
 
 @interface GameScene : SKScene
 

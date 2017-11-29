@@ -11,7 +11,7 @@
 
 @interface DataModelLevels : NSObject
 
-+(id)level1;
+//+(id)level1;
 
 @property (strong,nonatomic) NSMutableArray * levelsArray;  // holds arays of the levels
 
