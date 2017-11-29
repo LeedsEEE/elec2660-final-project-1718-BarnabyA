@@ -15,14 +15,14 @@
 {
     GameObjects *platform = [GameObjects spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(100, 100)];
     
-    //platform.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform.size];
-    //platform.physicsBody.dynamic = NO;
+    platform.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform.size];
+    platform.physicsBody.dynamic = NO;
     
     NSLog(@"GameObjects - platforms defined");
     return platform;
 }
-//-(NSMutableArray *)loadPlatform{
-    
-//R}
+
+
+
 
 @end

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9428490A1FCD99A800DF05B4 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 942849091FCD99A800DF05B4 /* Platform.m */; };
 		944D34FA1FC8D2A40041B59C /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 944D34F91FC8D2A40041B59C /* Player.m */; };
 		9465313E1FC73F98007A33B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465313D1FC73F98007A33B8 /* main.m */; };
 		946531411FC73F98007A33B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531401FC73F98007A33B8 /* AppDelegate.m */; };
@@ -21,6 +20,9 @@
 		9465315E1FC73F98007A33B8 /* Project3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465315D1FC73F98007A33B8 /* Project3Tests.m */; };
 		946531691FC73F99007A33B8 /* Project3UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531681FC73F99007A33B8 /* Project3UITests.m */; };
 		946531781FC74F31007A33B8 /* GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531771FC74F31007A33B8 /* GameObjects.m */; };
+		F5B855A31FCE346B000ADDBE /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A21FCE346B000ADDBE /* Level.m */; };
+		F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */; };
+		F5B855AB1FCE4888000ADDBE /* LevelGeneration.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855AA1FCE4888000ADDBE /* LevelGeneration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		942849081FCD99A800DF05B4 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
-		942849091FCD99A800DF05B4 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
 		944D34F81FC8D2A30041B59C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		944D34F91FC8D2A40041B59C /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		946531391FC73F98007A33B8 /* Project3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +67,12 @@
 		9465316A1FC73F99007A33B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		946531761FC74F31007A33B8 /* GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjects.h; sourceTree = "<group>"; };
 		946531771FC74F31007A33B8 /* GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjects.m; sourceTree = "<group>"; };
+		F5B855A11FCE346B000ADDBE /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		F5B855A21FCE346B000ADDBE /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		F5B855A41FCE353D000ADDBE /* DataModelLevels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelLevels.h; sourceTree = "<group>"; };
+		F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelLevels.m; sourceTree = "<group>"; };
+		F5B855A91FCE4888000ADDBE /* LevelGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGeneration.h; sourceTree = "<group>"; };
+		F5B855AA1FCE4888000ADDBE /* LevelGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelGeneration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +127,14 @@
 				946531401FC73F98007A33B8 /* AppDelegate.m */,
 				946531421FC73F98007A33B8 /* GameScene.sks */,
 				946531441FC73F98007A33B8 /* Actions.sks */,
+				F5B855A41FCE353D000ADDBE /* DataModelLevels.h */,
+				F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */,
+				F5B855A91FCE4888000ADDBE /* LevelGeneration.h */,
+				F5B855AA1FCE4888000ADDBE /* LevelGeneration.m */,
+				F5B855A11FCE346B000ADDBE /* Level.h */,
+				F5B855A21FCE346B000ADDBE /* Level.m */,
 				946531761FC74F31007A33B8 /* GameObjects.h */,
 				946531771FC74F31007A33B8 /* GameObjects.m */,
-				942849081FCD99A800DF05B4 /* Platform.h */,
-				942849091FCD99A800DF05B4 /* Platform.m */,
 				944D34F81FC8D2A30041B59C /* Player.h */,
 				944D34F91FC8D2A40041B59C /* Player.m */,
 				946531461FC73F98007A33B8 /* GameScene.h */,
@@ -301,12 +311,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */,
 				9465314B1FC73F98007A33B8 /* GameViewController.m in Sources */,
 				946531411FC73F98007A33B8 /* AppDelegate.m in Sources */,
-				9428490A1FCD99A800DF05B4 /* Platform.m in Sources */,
+				F5B855A31FCE346B000ADDBE /* Level.m in Sources */,
 				946531481FC73F98007A33B8 /* GameScene.m in Sources */,
 				9465313E1FC73F98007A33B8 /* main.m in Sources */,
 				944D34FA1FC8D2A40041B59C /* Player.m in Sources */,
+				F5B855AB1FCE4888000ADDBE /* LevelGeneration.m in Sources */,
 				946531781FC74F31007A33B8 /* GameObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -36,7 +36,7 @@
     //setting refence point for drawing other nodes
     self.anchorPoint = CGPointMake(0.5, 0.5);
     
-    //Creating instances of nodes in scene
+    //Setting nodes to correct ids 
     ground = [GameObjects platform];
     player = [Player player];
     NSLog(@"GameScean/initialize- gameplay nodes instances created");
