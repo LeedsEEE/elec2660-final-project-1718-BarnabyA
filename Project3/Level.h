@@ -8,18 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "GameObjects.h"
-@interface Level : NSObject{
-    int maxGameObjects;
-    float coordX[100];
-    float coordY[100];
-}
+@interface Level : NSObject
 
 @property (atomic) int numGameObjects; // holds the number of platforms that will be in the level
 @property (strong,nonatomic) NSMutableArray * gameObjectsArray;  // holds nodes
 @property (strong, nonatomic) UIColor * colour; // colds the colour the platforms will be in the level
-@property (strong,nonatomic) NSMutableArray * gameObjectsXCoord;
-@property (strong,nonatomic) NSMutableArray * gameObjectsYCoord;
+@property (strong,nonatomic) NSMutableArray * gameObjectsXCoord; //holds X coordinate of gameObjects before they are written added to their gameObjects
+@property (strong,nonatomic) NSMutableArray * gameObjectsYCoord; //holds Y coordinate of gameObjects before they are written added to their gameObjects
 
--(NSMutableArray *)generateGameObjects: (int)NOObject LevelColour:(UIColor *)colour positionX:(float *)coordX positionY:(float *)coordY;
+-(void)generateGameObjects;
 
 @end

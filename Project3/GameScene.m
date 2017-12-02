@@ -170,7 +170,7 @@
 }
 
 -(void)clearStage{
-    NSLog(@"claerStage");
+    NSLog(@"clearStage");
 }
 
 -(void)endGame{

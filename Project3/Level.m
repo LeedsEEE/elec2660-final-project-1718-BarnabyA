@@ -17,30 +17,29 @@
         self.colour = [UIColor greenColor];
         
         for (int i = 0; i < self.numGameObjects; i++) {
-            NSNumber *tempNum = @0;
+            NSNumber *tempNum = @100;
             [self.gameObjectsXCoord addObject: tempNum];
             [self.gameObjectsYCoord addObject: tempNum];
+            [self generateGameObjects];
         }
-        
-        
-        
-        
     }
     return self;
 }
 
-
--(NSMutableArray *)generateGameObjects{
+-(void)generateGameObjects{
     NSLog(@"Level/generateGameObjects- Running");
+    
     GameObjects *tempPlatform = [GameObjects platform];
     NSMutableArray *gameObjects = [[NSMutableArray alloc] init];
+    
     for (int i = 0; i < self.numGameObjects ; i++) {
         tempPlatform.name = [NSString stringWithFormat:@"gameObjectPlatform%i",i];
         tempPlatform.color = self.colour;
-        tempPlatform.position = CGPointMake([[self.gameObjectsXCoord objectAtIndex:i] floatValue], [[self.gameObjectsYCoord objectAtIndex:i] floatValue]);
+        tempPlatform.position =
+        CGPointMake([[self.gameObjectsXCoord objectAtIndex:i] floatValue],
+                    [[self.gameObjectsYCoord objectAtIndex:i] floatValue]);
         [gameObjects addObject:tempPlatform];
     }
     self.gameObjectsArray = gameObjects;
-    return gameObjects;
 }
 @end
