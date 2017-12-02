@@ -13,6 +13,8 @@
 
 @interface GameScene : SKScene
 
+@property (strong, nonatomic) DataModelLevels *levelData;
+
 @end
 
 /*

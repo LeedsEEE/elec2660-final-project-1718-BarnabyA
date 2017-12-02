@@ -13,6 +13,7 @@
 
 //+(id)level1;
 
-@property (strong,nonatomic) NSMutableArray * levelsArray;  // holds arays of the levels
+@property (strong,nonatomic) NSMutableArray * levelsArray;  // holds arrays of the levels
+
 
 @end

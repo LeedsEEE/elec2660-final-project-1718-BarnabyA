@@ -22,7 +22,9 @@
 }
 
 - (void)didMoveToView:(SKView *)view {
+    self.levelData = [[DataModelLevels alloc]init];
     [self initialize];
+    [self loadLevel:0];
     //[self loadTestLevel];
 
 }
@@ -83,6 +85,7 @@
 }
 
 
+
 -(void)loadTestLevel{
     //loades a basic level for testing
     
@@ -113,6 +116,35 @@
     [self addChild:platform1];
     NSLog(@"GameScean/loadTestLevel- platform1 node added to frame");
 }
+
+
+-(void)loadLevel:(int)levelNum {
+    Level *tempLevel = [self.levelData.levelsArray objectAtIndex:levelNum];
+    
+    NSLog(@"GameScean/loadLevel- ");
+    NSLog(@"GameScean/loadLevel- Loading Level %i", levelNum);
+    NSLog(@"GameScean/loadLevel- Loading %lu gameObjects", (unsigned long)tempLevel.gameObjectsArray.count);
+    
+    for (int i; i < tempLevel.gameObjectsArray.count; i++) {
+        
+        GameObjects *tempGameObjectCurrent = [GameObjects platform];
+        GameObjects *tempGameObjectPrevious = [GameObjects platform];
+        
+        NSLog(@"GameScean/loadLevel- gameObject %i",i);
+        NSLog(@"GameScean/loadLevel- properties");
+        NSLog(@"GameScean/loadLevel- name: %@", tempGameObjectCurrent.name);
+        NSLog(@"GameScean/loadLevel- size %0.f, %0.f",tempGameObjectCurrent.size.height,tempGameObjectCurrent.size.width);
+        
+        if (i == 0){
+            [ground addChild:tempGameObjectCurrent];
+        }else{
+            [tempGameObjectPrevious addChild:tempGameObjectCurrent];
+        }
+        tempGameObjectPrevious = tempGameObjectCurrent;
+    }
+}
+
+
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
