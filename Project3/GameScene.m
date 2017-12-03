@@ -22,9 +22,7 @@
 }
 
 - (void)didMoveToView:(SKView *)view {
-    self.levelData = [[DataModelLevels alloc]init];
     [self initialize];
-    [self loadLevel:0];
     //[self loadTestLevel];
 
 }
@@ -80,11 +78,10 @@
     _nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3, ground.position.y);
     NSLog(@"GameScean/initialize- Camera position set");
     
-    //Begins the players movement through the level with a set speed
+    self.levelData = [[DataModelLevels alloc]init];
+    [self loadLevel:0];
     
 }
-
-
 
 -(void)loadTestLevel{
     //loades a basic level for testing
@@ -120,16 +117,14 @@
 
 -(void)loadLevel:(int)levelNum {
     Level *tempLevel = [self.levelData.levelsArray objectAtIndex:levelNum];
-    
-    NSLog(@"GameScean/loadLevel- ");
+    GameObjects *tempGameObjectCurrent = [GameObjects platform];
+    GameObjects *tempGameObjectPrevious = [GameObjects platform];
+    //NSLog(@"GameScean/loadLevel- ");
     NSLog(@"GameScean/loadLevel- Loading Level %i", levelNum);
-    NSLog(@"GameScean/loadLevel- Loading %lu gameObjects", (unsigned long)tempLevel.gameObjectsArray.count);
+    NSLog(@"GameScean/loadLevel- Loading %lu gameObjects", tempLevel.gameObjectsArray.count);
     
-    for (int i; i < tempLevel.gameObjectsArray.count; i++) {
-        
-        GameObjects *tempGameObjectCurrent = [GameObjects platform];
-        GameObjects *tempGameObjectPrevious = [GameObjects platform];
-        
+    for (int i = 0; i < tempLevel.gameObjectsArray.count; i++) {
+        tempGameObjectCurrent = [tempLevel.gameObjectsArray objectAtIndex:i];
         NSLog(@"GameScean/loadLevel- gameObject %i",i);
         NSLog(@"GameScean/loadLevel- properties");
         NSLog(@"GameScean/loadLevel- name: %@", tempGameObjectCurrent.name);
@@ -139,6 +134,7 @@
             [ground addChild:tempGameObjectCurrent];
         }else{
             [tempGameObjectPrevious addChild:tempGameObjectCurrent];
+            NSLog(@"parent name: %@",tempGameObjectCurrent.parent.name);
         }
         tempGameObjectPrevious = tempGameObjectCurrent;
     }
