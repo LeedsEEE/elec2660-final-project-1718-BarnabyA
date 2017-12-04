@@ -7,21 +7,37 @@
 //
 
 #import "GameScene.h"
+@interface GameScene()
+
+@property int gameState;
+@property CGPoint finishCoord;
+@property NSString *Gamefont;
+
+//lastJumpTimeInterval and lastUpdateTimeInterval are from the updateWithTimeSinceLastUpdate method
+@property (nonatomic) NSTimeInterval lastJumpTimeInterval;
+@property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
+
+@end
 
 @implementation GameScene {
+    
+    
     //Defining nodes in scene
     GameObjects *ground;
     Player *player;
     SKCameraNode *_nodeCamera;
-    int GameState;
+    SKLabelNode *lbScore;
+
     /* Game state
         0: Not Started
         1: Started
         2: End Fail
+        3: End win
     */
 }
 
 - (void)didMoveToView:(SKView *)view {
+    self.Gamefont = @"TrebuchetMS";
     [self initialize];
     //[self loadTestLevel];
 
@@ -35,10 +51,12 @@
     
     //setting refence point for drawing other nodes
     self.anchorPoint = CGPointMake(0.5, 0.5);
+    self.physicsWorld.contactDelegate = self;
     
     //Setting nodes to correct ids 
     ground = [GameObjects platform];
     player = [Player player];
+    lbScore = [GameScoreLable lbScore:self.Gamefont];
     NSLog(@"GameScean/initialize- gameplay nodes instances created");
     
     //setting node names
@@ -51,25 +69,33 @@
     
     NSLog(@"GameScean/initialize- gameplay node's sizes set");
     
-    //setting start positions of nodes
+    //setting start positions of ground node
     ground.position = CGPointMake(0, -player.size.height/2 - ground.size.height/2);
+    
     NSLog(@"GameScean/initialize- gameplay node's starting positions");
     
-    //setting physics of nodes
+    //setting physics of ground node
     ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
     ground.physicsBody.dynamic = false;
     NSLog(@"GameScean/initialize- gameplay node physics set");
     
-    player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:player.size];
-    player.physicsBody.dynamic = true;
-    player.physicsBody.allowsRotation = false;
+
     NSLog(@"GameScean/initialize- player node physics set");
+    
+    lbScore.name = @"lbScore";
+    
     
     //adding nodes to view
     [self addChild:player];
     NSLog(@"GameScean/initialize- player node added to frame");
     [self addChild:ground];
     NSLog(@"GameScean/initialize- ground node added to frame");
+    [_nodeCamera addChild:lbScore];
+    
+    CGRect tempScreen = [UIScreen mainScreen].bounds;
+    NSLog(@"( %0.f, %0.f )", tempScreen.size.width, tempScreen.size.height);
+    lbScore.position = CGPointMake(-self.frame.size.width/2 + 50, self.frame.size.height/2 - 50);
+    
     
     
     //locks camera to track player sprite by assiging player as its parent node
@@ -77,9 +103,13 @@
     NSLog(@"GameScean/initialize- Camera tracking set");
     _nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3, ground.position.y);
     NSLog(@"GameScean/initialize- Camera position set");
+
+    
+    
+    
     
     self.levelData = [[DataModelLevels alloc]init];
-    [self loadLevel:0];
+    [self loadLevel:self.currentLevel];
     
 }
 
@@ -119,7 +149,7 @@
     Level *tempLevel = [self.levelData.levelsArray objectAtIndex:levelNum];
     GameObjects *tempGameObjectCurrent = [GameObjects platform];
     GameObjects *tempGameObjectPrevious = [GameObjects platform];
-    //NSLog(@"GameScean/loadLevel- ");
+    
     NSLog(@"GameScean/loadLevel- Loading Level %i", levelNum);
     NSLog(@"GameScean/loadLevel- Loading %lu gameObjects", tempLevel.gameObjectsArray.count);
     
@@ -130,53 +160,97 @@
         NSLog(@"GameScean/loadLevel- name: %@", tempGameObjectCurrent.name);
         NSLog(@"GameScean/loadLevel- size %0.f, %0.f",tempGameObjectCurrent.size.height,tempGameObjectCurrent.size.width);
         
+        //tempGameObjectCurrent.physicsBody.categoryBitMask = 0x1 << 1;
+        
         if (i == 0){
             [ground addChild:tempGameObjectCurrent];
         }else{
+            if(i == tempLevel.gameObjectsArray.count - 1){
+                tempGameObjectCurrent.color = [UIColor magentaColor];
+                tempGameObjectCurrent.name = @"gameObjectFinish";
+                tempGameObjectCurrent.physicsBody.categoryBitMask = 0x1 << 2;
+            }
             [tempGameObjectPrevious addChild:tempGameObjectCurrent];
             NSLog(@"parent name: %@",tempGameObjectCurrent.parent.name);
         }
         tempGameObjectPrevious = tempGameObjectCurrent;
+        self.finishCoord = [self convertPoint:tempGameObjectCurrent.position fromNode:tempGameObjectCurrent];
     }
 }
-
-
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     //Causes player to jump when screen is touched
     Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
     
-    if(GameState == 0){
+    if(self.gameState == 0){
         NSLog(@"GameScean/touchesBegan- Game start");
         [playerTemp moveXPositiveForever:1];
-        GameState = 1;
-        
-    } else if (GameState == 1){
+        player.cannotJump = false;
+        self.gameState = 1;
+    } else if (self.gameState == 1){
         NSLog(@"GameScean/touchesBegan- Jump");
         [playerTemp jump];
-    }else if (GameState > 1){
+    }else if (self.gameState > 3){
         NSLog(@"GameScean/touchesBegan- ERROR invalid game state");
     }
     
 }
 
--(void)update:(CFTimeInterval)currentTime {
+//altered update method source: https://www.raywenderlich.com/42699/spritekit-tutorial-for-beginners
+- (void)update:(NSTimeInterval)currentTime {
+    // Handle time delta.
+    // If we drop below 60fps, we still want everything to move the same distance.
+    CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
+    self.lastUpdateTimeInterval = currentTime;
+    if (timeSinceLast > 1) { // more than a second since last update
+        timeSinceLast = 1.0 / 60.0;
+        self.lastUpdateTimeInterval = currentTime;
+    }
+    
+    [self updateWithTimeSinceLastUpdate:timeSinceLast];
+}
+
+-(void)didBeginContact:(SKPhysicsContact *)contact{
     
 }
 
--(void)clearStage{
-    NSLog(@"clearStage");
+-(void)didSimulatePhysics{
+    [self determinGameState];
+}
+
+-(void)determinGameState{
+    if (player.position.y < ground.position.y){
+        self.gameState = 2;
+        NSLog(@"GameScean/determinGameState- Game Over");
+    }else if(player.position.x > self.finishCoord.x) {
+        self.gameState = 3;
+        NSLog(@"GameScean/determinGameState- You completed the level");
+        [self resetStage];
+    }
+}
+-(void)resetStage{
+    NSLog(@"GameScean/resetStage- Resetting Scene");
+    [player removeActionForKey:@"moveXPositiveForever"];
+    player.position = CGPointMake(0, 0);
+    [ground removeAllChildren];
+    [self loadTestLevel];
+    self.gameState = 0;
 }
 
 -(void)endGame{
-    NSLog(@"endGame");
+    NSLog(@"GameScean/determinGameState- EndingGame");
 }
--(void)didSimulatePhysics
-{
 
+//updateWithTimeSinceLastUpdate source: https://www.raywenderlich.com/42699/spritekit-tutorial-for-beginners
+- (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLast {
+    self.lastJumpTimeInterval += timeSinceLast;
+    if (self.lastJumpTimeInterval > 1.5) {
+        self.lastJumpTimeInterval = 0;
+        player.cannotJump = false;
+    }
 }
-    
+
 
     //test logs
     /*

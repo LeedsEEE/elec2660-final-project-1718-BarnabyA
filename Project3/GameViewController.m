@@ -22,13 +22,7 @@
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     SKView *skView = (SKView *)self.view;
-    
-    //skView.bounds.size = CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
-    // Present the scene
-    
-    ///
-    // stuff to get github to possibly work
-    ///
+
     [skView presentScene:scene];
     
     skView.showsFPS = YES;

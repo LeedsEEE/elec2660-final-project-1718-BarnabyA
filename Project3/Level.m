@@ -33,7 +33,6 @@
 
 -(void)generateGameObjects{
     NSLog(@"Level/generateGameObjects- Running");
-   GameObjects *tempPlatformTest = [GameObjects platform];
     NSMutableArray *gameObjects = [[NSMutableArray alloc] init];
     [self.gameObjectsArray removeAllObjects];
     
@@ -51,24 +50,7 @@
         NSLog(@"Level/generateGameObjects- gameobjects added: %lu ",gameObjects.count);
         
         [gameObjects addObject:tempPlatform];
-        
-        
-        NSLog(@"--------------------------------------------------------------------------------------------");
-        tempPlatform = [gameObjects objectAtIndex:0];
-        NSLog(@"[0] name: %@",tempPlatform.name);
-        NSLog(@"--------------------------------------------------------------------------------------------");
     }
     self.gameObjectsArray = gameObjects;
-    
-    NSLog(@"Level/generateGameObjects- %lu game objects created",self.gameObjectsArray.count);
-    tempPlatformTest = [self.gameObjectsArray objectAtIndex:0];
-    NSLog(@"gameObjectsArray[0] name: %@",tempPlatformTest.name);
-    tempPlatformTest = [gameObjects objectAtIndex:0];
-    NSLog(@"gameObjects[0] name: %@",tempPlatformTest.name);
-    tempPlatformTest = [gameObjects objectAtIndex:3];
-    NSLog(@"gameObjects[3] name: %@",tempPlatformTest.name);
-    tempPlatformTest = [gameObjects objectAtIndex:4];
-    NSLog(@"gameObjects[4] name: %@",tempPlatformTest.name);
-    NSLog(@"test");
 }
 @end

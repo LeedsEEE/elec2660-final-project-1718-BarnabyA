@@ -20,6 +20,7 @@
 		9465315E1FC73F98007A33B8 /* Project3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465315D1FC73F98007A33B8 /* Project3Tests.m */; };
 		946531691FC73F99007A33B8 /* Project3UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531681FC73F99007A33B8 /* Project3UITests.m */; };
 		946531781FC74F31007A33B8 /* GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531771FC74F31007A33B8 /* GameObjects.m */; };
+		F5A2EDC81FD4E31800B46594 /* GameScoreLable.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A2EDC71FD4E31800B46594 /* GameScoreLable.m */; };
 		F5B855A31FCE346B000ADDBE /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A21FCE346B000ADDBE /* Level.m */; };
 		F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,8 @@
 		9465316A1FC73F99007A33B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		946531761FC74F31007A33B8 /* GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjects.h; sourceTree = "<group>"; };
 		946531771FC74F31007A33B8 /* GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjects.m; sourceTree = "<group>"; };
+		F5A2EDC61FD4E31800B46594 /* GameScoreLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScoreLable.h; sourceTree = "<group>"; };
+		F5A2EDC71FD4E31800B46594 /* GameScoreLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScoreLable.m; sourceTree = "<group>"; };
 		F5B855A11FCE346B000ADDBE /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		F5B855A21FCE346B000ADDBE /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		F5B855A41FCE353D000ADDBE /* DataModelLevels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelLevels.h; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				946531771FC74F31007A33B8 /* GameObjects.m */,
 				944D34F81FC8D2A30041B59C /* Player.h */,
 				944D34F91FC8D2A40041B59C /* Player.m */,
+				F5A2EDC61FD4E31800B46594 /* GameScoreLable.h */,
+				F5A2EDC71FD4E31800B46594 /* GameScoreLable.m */,
 				946531461FC73F98007A33B8 /* GameScene.h */,
 				946531471FC73F98007A33B8 /* GameScene.m */,
 				946531491FC73F98007A33B8 /* GameViewController.h */,
@@ -307,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */,
+				F5A2EDC81FD4E31800B46594 /* GameScoreLable.m in Sources */,
 				9465314B1FC73F98007A33B8 /* GameViewController.m in Sources */,
 				946531411FC73F98007A33B8 /* AppDelegate.m in Sources */,
 				F5B855A31FCE346B000ADDBE /* Level.m in Sources */,

@@ -10,7 +10,7 @@
 
 @interface Player : SKSpriteNode
 
-//@property Ismoving:bool;
+@property bool cannotJump;
 
 +(id)player;
 

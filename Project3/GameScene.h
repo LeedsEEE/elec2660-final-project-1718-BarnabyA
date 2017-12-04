@@ -10,10 +10,14 @@
 #import "GameObjects.h"
 #import "player.h"
 #import "DataModelLevels.h"
+#import "GameScoreLable.h"
 
-@interface GameScene : SKScene
+@interface GameScene : SKScene <SKPhysicsContactDelegate>
 
 @property (strong, nonatomic) DataModelLevels *levelData;
+@property int currentLevel;
+
+
 
 @end
 
