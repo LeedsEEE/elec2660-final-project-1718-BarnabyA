@@ -10,19 +10,17 @@
 @interface GameScene()
 
 @property int gameState;
-@property int currentScore;
+@property int numGameState;
 @property CGPoint finishCoord;
 
-
-//lastJumpTimeInterval and lastUpdateTimeInterval have been adapted from the updateWithTimeSinceLastUpdate method
+//lastJumpTimeInterval and lastJumpUpdateTimeInterval have been adapted from the updateWithTimeSinceLastUpdate method
 
 @property (nonatomic) NSTimeInterval lastJumpTimeInterval;
-@property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
+@property (nonatomic) NSTimeInterval lastJumpUpdateTimeInterval;
 
 @end
 
 @implementation GameScene {
-    
     
     //Defining nodes in scene
     GameObjects *ground;
@@ -30,15 +28,16 @@
     SKCameraNode *_nodeCamera;
     SKLabelNode *lbSKScore;
     
-
     /* Game state
         0: Not Started
         1: Started
         2: End Fail
         3: End win
+        4: Paused
     */
 }
 
+#pragma mark - level Generation
 - (void)didMoveToView:(SKView *)view {
     self.currentLevel = 0;
     self.Gamefont = @"TrebuchetMS";
@@ -49,6 +48,7 @@
 
 -(void)initialize{
     NSLog(@"GameScean/initialize- frame sizes %.0f,%0.f", self.frame.size.width,self.frame.size.height);
+    self.numGameState= 5;
     
     //getting camera node from sks scene
     _nodeCamera = (SKCameraNode *)[self childNodeWithName:@"nodeCamera"];
@@ -60,7 +60,7 @@
     //Setting nodes to correct ids 
     ground = [GameObjects platform];
     player = [Player player];
-    lbSKScore = [GameScoreLabel lbScore:self.Gamefont];
+    lbSKScore = [GameLabel lbScore:self.Gamefont];
     NSLog(@"GameScean/initialize- gameplay nodes instances created");
     
     //setting node names
@@ -85,9 +85,6 @@
     ground.physicsBody.dynamic = false;
     NSLog(@"GameScean/initialize- gameplay node physics set");
     
-    
-    
-    
     //adding nodes to view
     [self addChild:player];
     NSLog(@"GameScean/initialize- player node added to frame");
@@ -95,19 +92,19 @@
     NSLog(@"GameScean/initialize- ground node added to frame");
     
     
-    
-
-    //locks camera to track player sprite by assiging player as its parent node
-    [_nodeCamera moveToParent:player];
-    NSLog(@"GameScean/initialize- Camera tracking set");
-    _nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3, ground.position.y);
     [_nodeCamera addChild:lbSKScore];
+    [self setCameraTracking:player];
     
     NSLog(@"GameScean/initialize- Camera position set");
-    self.currentScore = 0;
     self.levelData = [[DataModelLevels alloc]init];
     [self loadLevel:self.currentLevel];
     
+}
+
+-(void)setCameraTracking:(SKNode *)targetNode{
+    [_nodeCamera moveToParent:player];
+    _nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3, ground.position.y);
+    NSLog(@"GameScean/setCameraTracking- Camera tracking %@", targetNode.name);
 }
 
 -(void)loadTestLevel{
@@ -174,95 +171,138 @@
         }
         tempGameObjectPrevious = tempGameObjectCurrent;
         self.finishCoord = [self convertPoint:tempGameObjectCurrent.position fromNode:tempGameObjectCurrent];
-        
     }
 }
 
-
+#pragma mark - Running Game
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     //Causes player to jump when screen is touched
-    Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
+    //Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
     
     if(self.gameState == 0){
         NSLog(@"GameScean/touchesBegan- Game start");
-        [playerTemp moveXPositiveForever:1];
+        [self setCameraTracking:player];
         player.cannotJump = false;
+        player.isInAir = false;
         self.gameState = 1;
+        [self removeMessages];
+        [player moveXPositiveForever:1];
     } else if (self.gameState == 1){
         NSLog(@"GameScean/touchesBegan- Jump");
-        [playerTemp jump];
-    }else if (self.gameState > 3){
+        //[playerTemp jump];
+        [player jump];
+        
+    }else if(self.gameState == 4){
+        NSLog(@"GameScean/touchesBegan- Game unpause");
+        player.physicsBody.dynamic = true;
+        player.cannotJump = false;
+        self.gameState = 1;
+        [self removeMessages];
+        [self alterLevelAlpha:1];
+        [player moveXPositiveForever:1];
+        
+    }else if (self.gameState > self.numGameState - 1){
         NSLog(@"GameScean/touchesBegan- ERROR invalid game state");
     }
     
-}
-
-
--(void)didEndContact:(SKPhysicsContact *)contact{
-
-}
-
--(void)didBeginContact:(SKPhysicsContact *)contact{
-    player.isInAir = false;
-}
-
-
--(void)didSimulatePhysics{
-    [self determinGameState];
-}
-
--(void)determinGameState{
-    if (player.position.y < ground.position.y){
-        self.gameState = 2;
-        NSLog(@"GameScean/determinGameState- Game Over");
-    }else if(player.position.x > self.finishCoord.x) {
-        self.gameState = 3;
-        NSLog(@"GameScean/determinGameState- You completed the level");
-        [self resetStage];
-    }
-}
--(void)resetStage{
-    NSLog(@"GameScean/resetStage- Resetting Scene");
-    [player removeActionForKey:@"moveXPositiveForever"];
-    player.position = CGPointMake(0, 0);
-    [ground removeAllChildren];
-    [self loadTestLevel];
-    self.gameState = 0;
-}
-
--(void)endGame{
-    NSLog(@"GameScean/determinGameState- EndingGame");
 }
 
 //altered update method adapted from source: https://www.raywenderlich.com/42699/spritekit-tutorial-for-beginners
 - (void)update:(NSTimeInterval)currentTime {
     // Handle time delta.
     // If we drop below 60fps, we still want everything to move the same distance.
-    CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
-    self.lastUpdateTimeInterval = currentTime;
+    CFTimeInterval timeSinceLast = currentTime - self.lastJumpUpdateTimeInterval;
+    self.lastJumpUpdateTimeInterval = currentTime;
     if (timeSinceLast > 1) { // more than a second since last update
         timeSinceLast = 1.0 / 60.0;
-        self.lastUpdateTimeInterval = currentTime;
+        self.lastJumpUpdateTimeInterval = currentTime;
     }
-
+    
     [self updateWithTimeSinceLastUpdate:timeSinceLast];
     
     if (player.isInAir == true){
-        GameScoreLabel *templbSKScore = (GameScoreLabel *)[_nodeCamera childNodeWithName:@"lbSKScore"];
+        GameLabel *templbSKScore = (GameLabel *)[_nodeCamera childNodeWithName:@"lbSKScore"];
         [templbSKScore increaseScore];
     }
 }
 
-
-
 //updateWithTimeSinceLastUpdate source: https://www.raywenderlich.com/42699/spritekit-tutorial-for-beginners
-- (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLast {
-    self.lastJumpTimeInterval += timeSinceLast;
+- (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLastJump {
+    self.lastJumpTimeInterval += timeSinceLastJump;
     if (self.lastJumpTimeInterval > 1.5) {
         self.lastJumpTimeInterval = 0;
         player.cannotJump = false;
     }
 }
+
+-(void)didBeginContact:(SKPhysicsContact *)contact{
+    NSLog(@"contact began");
+    player.isInAir = false;
+}
+
+#pragma mark - Changing Game State
+
+
+
+-(void)determinGameState{
+    if (player.position.y < ground.position.y){
+        self.gameState = 2;
+        NSLog(@"GameScean/determinGameState- Game Over");
+        [self endGame];
+    }else if(player.position.x > self.finishCoord.x) {
+        self.gameState = 3;
+        [self endGame];
+        
+    }else if( self.gameState == 4){
+        [self pauseGame];
+    }else if (self.gameState> self.numGameState - 1){
+        NSLog(@"GameScean/determinGameState- ERROR invalid game state");
+    }
+}
+
+-(void)didSimulatePhysics{
+    [self determinGameState];
+}
+
+-(void)pauseGame{
+    self.gameState = 4;
+    [player removeActionForKey:@"moveXPositiveForever"];
+    player.physicsBody.dynamic = false;
+    [self alterLevelAlpha:0.5];
+}
+
+-(void)endGame{
+    NSLog(@"GameScean/determinGameState- EndingGame");
+    SKLabelNode *lbSKEndMessage = [GameLabel lbEndMsg:self.gameState font: self.Gamefont];
+    [self resetStage];
+    [self alterLevelAlpha:0.25];
+    [_nodeCamera addChild:lbSKEndMessage];
+}
+
+-(void)resetStage{
+    NSLog(@"GameScean/resetStage- Resetting Scene");
+    GameLabel *templbSKScore = (GameLabel *)[_nodeCamera childNodeWithName:@"lbSKScore"];
+    [templbSKScore resetScore];
+    [player removeActionForKey:@"moveXPositiveForever"];
+    player.position = CGPointMake(0, 0);
+    [ground removeAllChildren];
+    //[self loadTestLevel];
+    self.gameState = 0;
+}
+
+-(void)alterLevelAlpha:(float)alpha{
+    //recursive function that iterates down child chain until final child then changes all nodes alpha to original input
+    [_nodeCamera moveToParent:self];
+    player.alpha = alpha;
+    ground.alpha = alpha;
+}
+
+-(void)removeMessages{
+    [_nodeCamera removeAllChildren];
+    [_nodeCamera addChild:lbSKScore];
+}
+
+
 
 
     //test logs

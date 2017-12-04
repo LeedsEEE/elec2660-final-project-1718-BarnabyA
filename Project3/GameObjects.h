@@ -11,5 +11,5 @@
 @interface GameObjects : SKSpriteNode
 
 +(id)platform;
-
+//-(void)setAlpha:(CGFloat)alpha;
 @end

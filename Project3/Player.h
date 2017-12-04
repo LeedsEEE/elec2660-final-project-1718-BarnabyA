@@ -7,7 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "GameScoreLabel.h"
+#import "GameLabel.h"
 
 @interface Player : SKSpriteNode
 

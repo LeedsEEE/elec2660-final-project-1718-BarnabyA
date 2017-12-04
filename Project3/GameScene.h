@@ -10,7 +10,7 @@
 #import "GameObjects.h"
 #import "player.h"
 #import "DataModelLevels.h"
-#import "GameScoreLabel.h"
+#import "GameLabel.h"
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate>
 
