@@ -47,7 +47,9 @@ static const uint32_t bitMaskCategoryGameObject = 0x1 << 1;
     if (self.cannotJump == false) {
         [self runAction:jump];
         self.cannotJump = true;
+        self.isInAir = true;
         NSLog(@"Player/jump- jump impulse of 120 applied");
+        
     }
     
 }

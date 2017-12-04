@@ -8,8 +8,12 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface GameScoreLable : SKLabelNode
+@interface GameScoreLabel : SKLabelNode
+
+@property int currentScore;
 
 +(SKLabelNode *)lbScore: (NSString*)font;
+
+-(void) increaseScore;
 
 @end

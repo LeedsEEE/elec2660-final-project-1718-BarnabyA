@@ -7,10 +7,12 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "GameScoreLabel.h"
 
 @interface Player : SKSpriteNode
 
 @property bool cannotJump;
+@property bool isInAir;
 
 +(id)player;
 

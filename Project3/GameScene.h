@@ -10,14 +10,13 @@
 #import "GameObjects.h"
 #import "player.h"
 #import "DataModelLevels.h"
-#import "GameScoreLable.h"
+#import "GameScoreLabel.h"
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate>
 
 @property (strong, nonatomic) DataModelLevels *levelData;
 @property int currentLevel;
-
-
+@property NSString *Gamefont;
 
 @end
 

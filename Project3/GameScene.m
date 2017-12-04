@@ -10,10 +10,12 @@
 @interface GameScene()
 
 @property int gameState;
+@property int currentScore;
 @property CGPoint finishCoord;
-@property NSString *Gamefont;
 
-//lastJumpTimeInterval and lastUpdateTimeInterval are from the updateWithTimeSinceLastUpdate method
+
+//lastJumpTimeInterval and lastUpdateTimeInterval have been adapted from the updateWithTimeSinceLastUpdate method
+
 @property (nonatomic) NSTimeInterval lastJumpTimeInterval;
 @property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
 
@@ -26,7 +28,8 @@
     GameObjects *ground;
     Player *player;
     SKCameraNode *_nodeCamera;
-    SKLabelNode *lbScore;
+    SKLabelNode *lbSKScore;
+    
 
     /* Game state
         0: Not Started
@@ -37,6 +40,7 @@
 }
 
 - (void)didMoveToView:(SKView *)view {
+    self.currentLevel = 0;
     self.Gamefont = @"TrebuchetMS";
     [self initialize];
     //[self loadTestLevel];
@@ -56,12 +60,14 @@
     //Setting nodes to correct ids 
     ground = [GameObjects platform];
     player = [Player player];
-    lbScore = [GameScoreLable lbScore:self.Gamefont];
+    lbSKScore = [GameScoreLabel lbScore:self.Gamefont];
     NSLog(@"GameScean/initialize- gameplay nodes instances created");
     
     //setting node names
     ground.name = @"ground";
     player.name = @"player";
+    lbSKScore.name = @"lbSKScore";
+    
     NSLog(@"GameScean/initialize- gameplay node's named");
     
     //setting node sizes
@@ -71,7 +77,7 @@
     
     //setting start positions of ground node
     ground.position = CGPointMake(0, -player.size.height/2 - ground.size.height/2);
-    
+    lbSKScore.position = CGPointMake(-self.frame.size.width/2 + 75, self.frame.size.height/2 - 40);
     NSLog(@"GameScean/initialize- gameplay node's starting positions");
     
     //setting physics of ground node
@@ -79,10 +85,7 @@
     ground.physicsBody.dynamic = false;
     NSLog(@"GameScean/initialize- gameplay node physics set");
     
-
-    NSLog(@"GameScean/initialize- player node physics set");
     
-    lbScore.name = @"lbScore";
     
     
     //adding nodes to view
@@ -90,24 +93,18 @@
     NSLog(@"GameScean/initialize- player node added to frame");
     [self addChild:ground];
     NSLog(@"GameScean/initialize- ground node added to frame");
-    [_nodeCamera addChild:lbScore];
-    
-    CGRect tempScreen = [UIScreen mainScreen].bounds;
-    NSLog(@"( %0.f, %0.f )", tempScreen.size.width, tempScreen.size.height);
-    lbScore.position = CGPointMake(-self.frame.size.width/2 + 50, self.frame.size.height/2 - 50);
     
     
     
+
     //locks camera to track player sprite by assiging player as its parent node
     [_nodeCamera moveToParent:player];
     NSLog(@"GameScean/initialize- Camera tracking set");
     _nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3, ground.position.y);
+    [_nodeCamera addChild:lbSKScore];
+    
     NSLog(@"GameScean/initialize- Camera position set");
-
-    
-    
-    
-    
+    self.currentScore = 0;
     self.levelData = [[DataModelLevels alloc]init];
     [self loadLevel:self.currentLevel];
     
@@ -115,6 +112,8 @@
 
 -(void)loadTestLevel{
     //loades a basic level for testing
+    
+    NSLog(@"GameScean/loadTestLevel- Loading Test Level");
     
     GameObjects *platform0;
     GameObjects *platform1;
@@ -175,6 +174,7 @@
         }
         tempGameObjectPrevious = tempGameObjectCurrent;
         self.finishCoord = [self convertPoint:tempGameObjectCurrent.position fromNode:tempGameObjectCurrent];
+        
     }
 }
 
@@ -197,23 +197,15 @@
     
 }
 
-//altered update method source: https://www.raywenderlich.com/42699/spritekit-tutorial-for-beginners
-- (void)update:(NSTimeInterval)currentTime {
-    // Handle time delta.
-    // If we drop below 60fps, we still want everything to move the same distance.
-    CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
-    self.lastUpdateTimeInterval = currentTime;
-    if (timeSinceLast > 1) { // more than a second since last update
-        timeSinceLast = 1.0 / 60.0;
-        self.lastUpdateTimeInterval = currentTime;
-    }
-    
-    [self updateWithTimeSinceLastUpdate:timeSinceLast];
+
+-(void)didEndContact:(SKPhysicsContact *)contact{
+
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact{
-    
+    player.isInAir = false;
 }
+
 
 -(void)didSimulatePhysics{
     [self determinGameState];
@@ -241,6 +233,27 @@
 -(void)endGame{
     NSLog(@"GameScean/determinGameState- EndingGame");
 }
+
+//altered update method adapted from source: https://www.raywenderlich.com/42699/spritekit-tutorial-for-beginners
+- (void)update:(NSTimeInterval)currentTime {
+    // Handle time delta.
+    // If we drop below 60fps, we still want everything to move the same distance.
+    CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
+    self.lastUpdateTimeInterval = currentTime;
+    if (timeSinceLast > 1) { // more than a second since last update
+        timeSinceLast = 1.0 / 60.0;
+        self.lastUpdateTimeInterval = currentTime;
+    }
+
+    [self updateWithTimeSinceLastUpdate:timeSinceLast];
+    
+    if (player.isInAir == true){
+        GameScoreLabel *templbSKScore = (GameScoreLabel *)[_nodeCamera childNodeWithName:@"lbSKScore"];
+        [templbSKScore increaseScore];
+    }
+}
+
+
 
 //updateWithTimeSinceLastUpdate source: https://www.raywenderlich.com/42699/spritekit-tutorial-for-beginners
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLast {
