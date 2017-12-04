@@ -23,15 +23,9 @@
 
 /*
 To do 02:43 11/29
- -finish implementing level generation
-    -attach to frame
-    -chain child attach so that their positions are reletive to the last platform
     -accout for variable size platfroms future implementation
- -fix infinate jump
- -add end state
-    -add EndWin
-    -add EndFail
-        -collision
- -add score
- -add level transition
+    -add EndWin - framework implemented
+    -add EndFail - framework implemented
+ -add score - frame work implemented
+ -add level transition - semi done
 */
