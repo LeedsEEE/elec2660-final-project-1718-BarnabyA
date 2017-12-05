@@ -20,6 +20,8 @@
 		9465315E1FC73F98007A33B8 /* Project3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465315D1FC73F98007A33B8 /* Project3Tests.m */; };
 		946531691FC73F99007A33B8 /* Project3UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531681FC73F99007A33B8 /* Project3UITests.m */; };
 		946531781FC74F31007A33B8 /* GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531771FC74F31007A33B8 /* GameObjects.m */; };
+		9496A0F01FD71A3C00DC39E0 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */; };
+		9496A0F31FD7244E00DC39E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */; };
 		F5A2EDC81FD4E31800B46594 /* GameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A2EDC71FD4E31800B46594 /* GameLabel.m */; };
 		F5B855A31FCE346B000ADDBE /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A21FCE346B000ADDBE /* Level.m */; };
 		F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */; };
@@ -67,6 +69,10 @@
 		9465316A1FC73F99007A33B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		946531761FC74F31007A33B8 /* GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjects.h; sourceTree = "<group>"; };
 		946531771FC74F31007A33B8 /* GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjects.m; sourceTree = "<group>"; };
+		9496A0EE1FD71A3C00DC39E0 /* TitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleViewController.h; path = MenuFiles/TitleViewController.h; sourceTree = "<group>"; };
+		9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleViewController.m; path = MenuFiles/TitleViewController.m; sourceTree = "<group>"; };
+		9496A0F11FD7244E00DC39E0 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = MenuFiles/SettingsViewController.h; sourceTree = "<group>"; };
+		9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = MenuFiles/SettingsViewController.m; sourceTree = "<group>"; };
 		F5A2EDC61FD4E31800B46594 /* GameLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLabel.h; sourceTree = "<group>"; };
 		F5A2EDC71FD4E31800B46594 /* GameLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLabel.m; sourceTree = "<group>"; };
 		F5B855A11FCE346B000ADDBE /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
@@ -141,7 +147,11 @@
 				946531471FC73F98007A33B8 /* GameScene.m */,
 				946531491FC73F98007A33B8 /* GameViewController.h */,
 				9465314A1FC73F98007A33B8 /* GameViewController.m */,
+				9496A0EE1FD71A3C00DC39E0 /* TitleViewController.h */,
+				9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */,
 				9465314C1FC73F98007A33B8 /* Main.storyboard */,
+				9496A0F11FD7244E00DC39E0 /* SettingsViewController.h */,
+				9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */,
 				9465314F1FC73F98007A33B8 /* Assets.xcassets */,
 				946531511FC73F98007A33B8 /* LaunchScreen.storyboard */,
 				946531541FC73F98007A33B8 /* Info.plist */,
@@ -318,6 +328,8 @@
 				F5B855A31FCE346B000ADDBE /* Level.m in Sources */,
 				946531481FC73F98007A33B8 /* GameScene.m in Sources */,
 				9465313E1FC73F98007A33B8 /* main.m in Sources */,
+				9496A0F01FD71A3C00DC39E0 /* TitleViewController.m in Sources */,
+				9496A0F31FD7244E00DC39E0 /* SettingsViewController.m in Sources */,
 				944D34FA1FC8D2A40041B59C /* Player.m in Sources */,
 				946531781FC74F31007A33B8 /* GameObjects.m in Sources */,
 			);

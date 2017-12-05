@@ -34,6 +34,7 @@
         2: End Fail
         3: End win
         4: Paused
+        5: Completed Game
     */
 }
 
@@ -163,20 +164,23 @@
         tempGameObjectCurrent.physicsBody.categoryBitMask = 0x1 << 1;
         
         if (i == 0){
-            tempGameObjectCurrent.position = CGPointMake(tempGameObjectCurrent.position.x, tempGameObjectCurrent.position.y);
+            tempGameObjectCurrent.position = CGPointMake(ground.size.width/2, tempGameObjectCurrent.position.y);
             [ground addChild:tempGameObjectCurrent];
         }else{
             if(i == tempLevel.gameObjectsArray.count - 1){
                 tempGameObjectCurrent.color = [UIColor magentaColor];
                 tempGameObjectCurrent.name = @"gameObjectFinish";
                 tempGameObjectCurrent.physicsBody.categoryBitMask = 0x1 << 2;
-                self.finishCoord = [self convertPoint:tempGameObjectCurrent.position fromNode:tempGameObjectCurrent];
+                
             }
             [tempGameObjectPrevious addChild:tempGameObjectCurrent];
         }
         tempGameObjectPrevious = tempGameObjectCurrent;
-        self.finishCoord = [self convertPoint:tempGameObjectCurrent.position fromNode:tempGameObjectCurrent];
+        self.finishCoord = [self convertPoint:tempGameObjectCurrent.position fromNode:tempGameObjectCurrent.parent];
+        //NSLog(@"GameScean/loadLevel- final platfrom coord: ( %0.f, %0.f )",tempGameObjectCurrent.position.x,tempGameObjectCurrent.position.y);
+        
     }
+    NSLog(@"GameScean/loadLevel- fianl coord: ( %0.f, %0.f )",self.finishCoord.x,self.finishCoord.y);
     [lbSKScore resetScore];
 }
 

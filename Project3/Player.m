@@ -23,7 +23,6 @@ static const uint32_t bitMaskCategoryGameObject = 0x1 << 1;
 +(id)player
 {
     Player *player = [Player spriteNodeWithColor:[UIColor orangeColor] size:CGSizeMake(50, 50)];
-
     player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:player.size];
     player.physicsBody.dynamic = true;
     player.physicsBody.allowsRotation = false;
