@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "364BEFBD5B72E824E68F3B44375912DC58A69EF6+++DE6BAAC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "364BEFBD5B72E824E68F3B44375912DC58A69EF6+++61ED288" : 9223372036854775807,
+    "364BEFBD5B72E824E68F3B44375912DC58A69EF6+++ADE6EF7" : 9223372036854775807,
+    "364BEFBD5B72E824E68F3B44375912DC58A69EF6+++DE6BAAC" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E8D617AF-8815-49FB-A724-F0EB0C2550EE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "364BEFBD5B72E824E68F3B44375912DC58A69EF6+++61ED288" : "..",
+    "364BEFBD5B72E824E68F3B44375912DC58A69EF6+++ADE6EF7" : "..",
+    "364BEFBD5B72E824E68F3B44375912DC58A69EF6+++DE6BAAC" : "elec2660-final-project-1718-BarnabyA\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Project3",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Project3.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/LeedsEEE\/elec2660-final-project-1718-BarnabyA.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "364BEFBD5B72E824E68F3B44375912DC58A69EF6+++61ED288"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/BarnabyA\/Project-prototype.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "364BEFBD5B72E824E68F3B44375912DC58A69EF6+++ADE6EF7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/LeedsEEE\/elec2660-final-project-1718-BarnabyA.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "364BEFBD5B72E824E68F3B44375912DC58A69EF6+++DE6BAAC"
+    }
+  ]
+}
