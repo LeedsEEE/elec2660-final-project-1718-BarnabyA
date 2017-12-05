@@ -187,7 +187,6 @@
         player.cannotJump = false;
         player.isInAir = false;
         [self beginGame];
-        [self getChildChain:ground];
     } else if (self.gameState == 1){
         NSLog(@"GameScean/touchesBegan- Jump");
         //[playerTemp jump];
@@ -204,18 +203,16 @@
     
 }
 
--(void)getChildChain:(SKNode *)targetNode{
-    bool child;
+-(void)removeChildChain:(SKNode *)targetNode{
     SKNode *tempNode = [[SKNode alloc]init];
-    if (targetNode.children == NULL) {
+    if (targetNode.children != NULL && targetNode.children.count != 0 ){
+        NSLog(@"Target name: %@",targetNode.name);
         tempNode = targetNode.children[0];
-        [self getChildChain:tempNode];
+        [self removeChildChain:tempNode];
+        [tempNode removeAllChildren];
     }else{
         NSLog(@"child chain: %@",tempNode.name);
     }
-    
-    
-    
 }
 
 
@@ -228,7 +225,6 @@
     [player moveXPositiveForever:1];
     
 }
-
 
 //altered update method adapted from source: https://www.raywenderlich.com/42699/spritekit-tutorial-for-beginners
 - (void)update:(NSTimeInterval)currentTime {
