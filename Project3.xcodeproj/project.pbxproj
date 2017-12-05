@@ -129,29 +129,13 @@
 		9465313B1FC73F98007A33B8 /* Project3 */ = {
 			isa = PBXGroup;
 			children = (
+				948741071FD740FB0079C585 /* GameFiles */,
+				948741061FD740550079C585 /* MenuFiles */,
 				9465313F1FC73F98007A33B8 /* AppDelegate.h */,
 				946531401FC73F98007A33B8 /* AppDelegate.m */,
 				946531421FC73F98007A33B8 /* GameScene.sks */,
 				946531441FC73F98007A33B8 /* Actions.sks */,
-				F5B855A41FCE353D000ADDBE /* DataModelLevels.h */,
-				F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */,
-				F5B855A11FCE346B000ADDBE /* Level.h */,
-				F5B855A21FCE346B000ADDBE /* Level.m */,
-				946531761FC74F31007A33B8 /* GameObjects.h */,
-				946531771FC74F31007A33B8 /* GameObjects.m */,
-				944D34F81FC8D2A30041B59C /* Player.h */,
-				944D34F91FC8D2A40041B59C /* Player.m */,
-				F5A2EDC61FD4E31800B46594 /* GameLabel.h */,
-				F5A2EDC71FD4E31800B46594 /* GameLabel.m */,
-				946531461FC73F98007A33B8 /* GameScene.h */,
-				946531471FC73F98007A33B8 /* GameScene.m */,
-				946531491FC73F98007A33B8 /* GameViewController.h */,
-				9465314A1FC73F98007A33B8 /* GameViewController.m */,
-				9496A0EE1FD71A3C00DC39E0 /* TitleViewController.h */,
-				9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */,
 				9465314C1FC73F98007A33B8 /* Main.storyboard */,
-				9496A0F11FD7244E00DC39E0 /* SettingsViewController.h */,
-				9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */,
 				9465314F1FC73F98007A33B8 /* Assets.xcassets */,
 				946531511FC73F98007A33B8 /* LaunchScreen.storyboard */,
 				946531541FC73F98007A33B8 /* Info.plist */,
@@ -184,6 +168,46 @@
 				9465316A1FC73F99007A33B8 /* Info.plist */,
 			);
 			path = Project3UITests;
+			sourceTree = "<group>";
+		};
+		948741061FD740550079C585 /* MenuFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9496A0EE1FD71A3C00DC39E0 /* TitleViewController.h */,
+				9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */,
+				9496A0F11FD7244E00DC39E0 /* SettingsViewController.h */,
+				9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */,
+			);
+			name = MenuFiles;
+			sourceTree = "<group>";
+		};
+		948741071FD740FB0079C585 /* GameFiles */ = {
+			isa = PBXGroup;
+			children = (
+				948741081FD741580079C585 /* GameAssests */,
+				F5B855A41FCE353D000ADDBE /* DataModelLevels.h */,
+				F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */,
+				F5B855A11FCE346B000ADDBE /* Level.h */,
+				F5B855A21FCE346B000ADDBE /* Level.m */,
+				946531761FC74F31007A33B8 /* GameObjects.h */,
+				946531771FC74F31007A33B8 /* GameObjects.m */,
+				944D34F81FC8D2A30041B59C /* Player.h */,
+				944D34F91FC8D2A40041B59C /* Player.m */,
+				F5A2EDC61FD4E31800B46594 /* GameLabel.h */,
+				F5A2EDC71FD4E31800B46594 /* GameLabel.m */,
+				946531461FC73F98007A33B8 /* GameScene.h */,
+				946531471FC73F98007A33B8 /* GameScene.m */,
+				946531491FC73F98007A33B8 /* GameViewController.h */,
+				9465314A1FC73F98007A33B8 /* GameViewController.m */,
+			);
+			name = GameFiles;
+			sourceTree = "<group>";
+		};
+		948741081FD741580079C585 /* GameAssests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GameAssests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
