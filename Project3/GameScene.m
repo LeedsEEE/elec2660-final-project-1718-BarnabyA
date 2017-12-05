@@ -48,7 +48,7 @@
 -(void)initialize{
     NSLog(@"GameScean/initialize- frame sizes %.0f,%0.f", self.frame.size.width,self.frame.size.height);
     self.numGameState= 5;
-    
+    self.difficulty = 1.5;
     //getting camera node from sks scene
     _nodeCamera = (SKCameraNode *)[self childNodeWithName:@"nodeCamera"];
     
@@ -108,40 +108,6 @@
     NSLog(@"GameScean/setCameraTracking- Camera tracking %@", targetNode.name);
 }
 
--(void)loadTestLevel{
-    //loades a basic level for testing
-    
-    NSLog(@"GameScean/loadTestLevel- Loading Test Level");
-    
-    GameObjects *platform0;
-    GameObjects *platform1;
-    
-    platform0 = [GameObjects platform];
-    platform1 = [GameObjects platform];
-    
-    platform0.name = @"platform0";
-    platform1.name = @"platform1";
-    
-    platform0.size = CGSizeMake(150, ground.size.height);
-    platform1.size = platform0.size;
-    
-    platform0.position = CGPointMake(ground.position.x + ground.size.width/2 + platform0.size.width/2,
-                                     ground.position.y + 100);
-    platform1.position = CGPointMake(platform0.position.x + platform0.size.width,
-                                     ground.position.y);
-    
-    platform0.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform0.size];
-    platform0.physicsBody.dynamic = false;
-    platform1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform1.size];
-    platform1.physicsBody.dynamic = false;
-    
-    [self addChild:platform0];
-    NSLog(@"GameScean/loadTestLevel- platform0 node added to frame");
-    [self addChild:platform1];
-    NSLog(@"GameScean/loadTestLevel- platform1 node added to frame");
-}
-
-
 -(void)loadLevel:(int)levelNum {
     Level *tempLevel = [self.levelData.levelsArray objectAtIndex:levelNum];
     GameObjects *tempGameObjectCurrent = [GameObjects platform];
@@ -181,29 +147,31 @@
         
     }
     NSLog(@"GameScean/loadLevel- fianl coord: ( %0.f, %0.f )",self.finishCoord.x,self.finishCoord.y);
+    player.physicsBody.dynamic = false;
+    player.position = CGPointMake(0,0);
+    [player removeAllActions];
     [lbSKScore resetScore];
 }
 
 #pragma mark - Running Game
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     //Causes player to jump when screen is touched
-    //Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
-    
-    
+
     if(self.gameState == 0){
         NSLog(@"GameScean/touchesBegan- Game start");
         player.cannotJump = false;
         player.isInAir = false;
         [self beginGame];
     } else if (self.gameState == 1){
-        NSLog(@"GameScean/touchesBegan- Jump");
-        //[playerTemp jump];
+        //NSLog(@"GameScean/touchesBegan- Jump");
         [player jump];
         
     }else if(self.gameState == 4){
         NSLog(@"GameScean/touchesBegan- Game unpause");
         player.cannotJump = false;
         [self beginGame];
+    }else if(self.gameState == 5){
+        //move to title menu
         
     }else if (self.gameState > self.numGameState - 1){
         NSLog(@"GameScean/touchesBegan- ERROR invalid game state");
@@ -211,28 +179,15 @@
     
 }
 
--(void)removeChildChain:(SKNode *)targetNode{
-    SKNode *tempNode = [[SKNode alloc]init];
-    if (targetNode.children != NULL && targetNode.children.count != 0 ){
-        NSLog(@"GameScene/removeChildChain- Target name: %@",targetNode.name);
-        tempNode = targetNode.children[0];
-        [self removeChildChain:tempNode];
-        NSLog(@"GameScene/removeChildChain-removing from parent: %@",tempNode.name);
-        [tempNode removeFromParent];
-    }else{
-        NSLog(@"child chain end: %@",targetNode.name);
-    }
-}
-
-
-
 -(void)beginGame{
+    //starts the game moving from an inactive state
+    NSLog(@"GameScean/beginGame- Beginging Game");
     self.gameState = 1;
     [self removeMessages];
     [self setCameraTracking:player];
     [self alterLevelAlpha:1 includeCamera:true];
     player.physicsBody.dynamic = true;
-    [player moveXPositiveForever:1];
+    [player moveXPositiveForever:self.difficulty];
     
 }
 
@@ -273,33 +228,33 @@
 
 -(void)determinGameState{
     if (player.position.y < ground.position.y){
+        //level failed state
         self.gameState = 2;
-        NSLog(@"GameScean/determinGameState- Game Over");
-        NSLog(@"GameScean/touchesBegan- Player coord: ( %f, %f )",player.position.x, player.position.y);
-        NSLog(@"GameScean/touchesBegan- Finish coord: ( %f, %f )",self.finishCoord.x, self.finishCoord.y);
-        NSLog(@"GameScean/touchesBegan- fail Y cord: %f", ground.position.y);
-        NSLog(@"test end");
-        
         [self endGame];
+        
     }else if(player.position.x > self.finishCoord.x) {
+        //Level complete state
+        
         self.gameState = 3;
-        NSLog(@"GameScean/determinGameState- level complete");
-        NSLog(@"GameScean/touchesBegan- Player coord: ( %f, %f )",player.position.x, player.position.y);
-        NSLog(@"GameScean/touchesBegan- Finish coord: ( %f, %f )",self.finishCoord.x, self.finishCoord.y);
-        NSLog(@"GameScean/touchesBegan- fail Y cord: %f", ground.position.y);
-        NSLog(@"test end");
         if(self.currentLevel != self.levelData.levelsArray.count){
             NSLog(@"GameScean/determinGameState- incrementing current level");
             self.currentLevel++;
+            [self endGame];
+        }else{
+            SKLabelNode *completionMsg = [GameLabel lbCompleteMsg:self.Gamefont];
+            self.gameState = 5;
+            player.physicsBody.dynamic = false;
+            [player removeAllActions];
+            [_nodeCamera addChild:completionMsg];
+            [self alterLevelAlpha:0.25 includeCamera:false];
         }
         
-        [self endGame];
         
     }else if( self.gameState == 4){
         NSLog(@"GameScean/determinGameState- paused");
         [self pauseGame];
         
-    }else if (self.gameState> self.numGameState - 1){
+    }else if (self.gameState > self.numGameState - 1){
         NSLog(@"GameScean/determinGameState- ERROR invalid game state");
     }
 }
@@ -337,6 +292,19 @@
     self.gameState = 0;
 }
 
+-(void)removeChildChain:(SKNode *)targetNode{
+    SKNode *tempNode = [[SKNode alloc]init];
+    if (targetNode.children != NULL && targetNode.children.count != 0 ){
+        NSLog(@"GameScene/removeChildChain- Target name: %@",targetNode.name);
+        tempNode = targetNode.children[0];
+        [self removeChildChain:tempNode];
+        NSLog(@"GameScene/removeChildChain-removing from parent: %@",tempNode.name);
+        [tempNode removeFromParent];
+    }else{
+        NSLog(@"child chain end: %@",targetNode.name);
+    }
+}
+
 -(void)alterLevelAlpha:(float)alpha includeCamera:(bool)includeCamera{
     //recursive function that iterates down child chain until final child then changes all nodes alpha to original input
     if (includeCamera  == false){
@@ -353,34 +321,39 @@
     [_nodeCamera addChild:lbSKScore];
 }
 
-    //test logs
     /*
-     NSLog(@"GameViewController - ground (%.0f, %.0f)", ground.position.x, ground.position.y);
-     NSLog(@"GameViewController - player node name: %@", player.name);
-     */
-    //testing code for game object placement
-    /*
-     NSLog(@"GameScene - fame height = %f",self.frame.size.height);
-     NSLog(@"GameScene - fame width = %f",self.frame.size.width);
+     -(void)loadTestLevel{
+     //loades a basic level for testing
      
-     CGRect screenSize = [[UIScreen mainScreen] bounds];
-     NSLog(@"GameScene - screen height = %f",screenSize.size.height);
-     NSLog(@"GameScene - screen width = %f",screenSize.size.width);
+     NSLog(@"GameScean/loadTestLevel- Loading Test Level");
      
-     SKSpriteNode *test0 = [SKSpriteNode spriteNodeWithColor: [UIColor greenColor] size:CGSizeMake(10, 10)];
-     SKSpriteNode *test1 = [SKSpriteNode spriteNodeWithColor: [UIColor redColor] size:CGSizeMake(screenSize.size.width, 10)];
-     SKSpriteNode *test2 = [SKSpriteNode spriteNodeWithColor: [UIColor yellowColor] size:CGSizeMake(10, screenSize.size.height)];
-     SKSpriteNode *test3 = [SKSpriteNode spriteNodeWithColor: [UIColor blueColor] size:CGSizeMake(screenSize.size.width+100, 10)];
+     GameObjects *platform0;
+     GameObjects *platform1;
      
+     platform0 = [GameObjects platform];
+     platform1 = [GameObjects platform];
      
-     test1.position = CGPointMake(0, 0);
-     test2.position = CGPointMake(0, 0);
-     test3.position = CGPointMake(0, -10);
+     platform0.name = @"platform0";
+     platform1.name = @"platform1";
      
-     [self addChild:test0];
-     [self addChild:test1];
-     [self addChild:test2];
-     [self addChild:test3];
+     platform0.size = CGSizeMake(150, ground.size.height);
+     platform1.size = platform0.size;
+     
+     platform0.position = CGPointMake(ground.position.x + ground.size.width/2 + platform0.size.width/2,
+     ground.position.y + 100);
+     platform1.position = CGPointMake(platform0.position.x + platform0.size.width,
+     ground.position.y);
+     
+     platform0.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform0.size];
+     platform0.physicsBody.dynamic = false;
+     platform1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform1.size];
+     platform1.physicsBody.dynamic = false;
+     
+     [self addChild:platform0];
+     NSLog(@"GameScean/loadTestLevel- platform0 node added to frame");
+     [self addChild:platform1];
+     NSLog(@"GameScean/loadTestLevel- platform1 node added to frame");
+     }
      */
 
 /*

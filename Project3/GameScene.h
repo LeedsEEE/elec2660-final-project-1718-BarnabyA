@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) DataModelLevels *levelData;
 @property int currentLevel;
+@property float difficulty;
 @property NSString *Gamefont;
 
 @end

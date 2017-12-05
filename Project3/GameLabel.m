@@ -31,6 +31,15 @@
     return endMsg;
 }
 
++(id)lbCompleteMsg:(NSString *)font{
+    SKLabelNode *completeMsg = [[SKLabelNode alloc]init];
+    completeMsg.fontName = font;
+    completeMsg.fontSize = 42;
+    completeMsg.alpha = 1;
+    completeMsg.text = @"Well Done!! \n tap to return to the title screen";
+    return completeMsg;
+}
+
 -(void)increaseScore{
     self.currentScore++;
     self.text = [NSString stringWithFormat:@"Score: %i",self.currentScore];

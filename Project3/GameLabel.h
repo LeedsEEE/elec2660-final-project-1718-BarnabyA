@@ -14,6 +14,7 @@
 
 +(id)lbScore: (NSString*)font;
 +(id)lbEndMsg:(int)gameState font:(NSString *)font;
++(id)lbCompleteMsg:(NSString *)font;
 -(void) increaseScore;
 -(void)resetScore;
 @end
