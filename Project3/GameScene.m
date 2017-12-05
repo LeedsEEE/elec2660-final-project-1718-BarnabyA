@@ -42,8 +42,6 @@
     self.currentLevel = 0;
     self.Gamefont = @"TrebuchetMS";
     [self initialize];
-    //[self loadTestLevel];
-
 }
 
 -(void)initialize{
@@ -93,6 +91,8 @@
     
     
     [_nodeCamera addChild:lbSKScore];
+    
+
     [self setCameraTracking:player];
     
     NSLog(@"GameScean/initialize- Camera position set");
@@ -152,6 +152,9 @@
     
     for (int i = 0; i < tempLevel.gameObjectsArray.count; i++) {
         tempGameObjectCurrent = [tempLevel.gameObjectsArray objectAtIndex:i];
+        if(tempGameObjectCurrent.parent){
+            [tempGameObjectCurrent removeFromParent];
+        }
         NSLog(@"GameScean/loadLevel- gameObject %i",i);
         NSLog(@"GameScean/loadLevel- properties");
         NSLog(@"GameScean/loadLevel- name: %@", tempGameObjectCurrent.name);
@@ -160,16 +163,16 @@
         tempGameObjectCurrent.physicsBody.categoryBitMask = 0x1 << 1;
         
         if (i == 0){
-            tempGameObjectCurrent.position = CGPointMake(tempGameObjectCurrent.position.x + ground.size.width/2, tempGameObjectCurrent.position.y);
+            tempGameObjectCurrent.position = CGPointMake(tempGameObjectCurrent.position.x, tempGameObjectCurrent.position.y);
             [ground addChild:tempGameObjectCurrent];
         }else{
             if(i == tempLevel.gameObjectsArray.count - 1){
                 tempGameObjectCurrent.color = [UIColor magentaColor];
                 tempGameObjectCurrent.name = @"gameObjectFinish";
                 tempGameObjectCurrent.physicsBody.categoryBitMask = 0x1 << 2;
+                self.finishCoord = [self convertPoint:tempGameObjectCurrent.position fromNode:tempGameObjectCurrent];
             }
             [tempGameObjectPrevious addChild:tempGameObjectCurrent];
-            NSLog(@"parent name: %@",tempGameObjectCurrent.parent.name);
         }
         tempGameObjectPrevious = tempGameObjectCurrent;
         self.finishCoord = [self convertPoint:tempGameObjectCurrent.position fromNode:tempGameObjectCurrent];
@@ -181,6 +184,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     //Causes player to jump when screen is touched
     //Player *playerTemp = (Player *)[self childNodeWithName:@"player"];
+    
     
     if(self.gameState == 0){
         NSLog(@"GameScean/touchesBegan- Game start");
@@ -206,14 +210,16 @@
 -(void)removeChildChain:(SKNode *)targetNode{
     SKNode *tempNode = [[SKNode alloc]init];
     if (targetNode.children != NULL && targetNode.children.count != 0 ){
-        NSLog(@"Target name: %@",targetNode.name);
+        NSLog(@"GameScene/removeChildChain- Target name: %@",targetNode.name);
         tempNode = targetNode.children[0];
         [self removeChildChain:tempNode];
-        [tempNode removeAllChildren];
+        NSLog(@"GameScene/removeChildChain-removing from parent: %@",tempNode.name);
+        [tempNode removeFromParent];
     }else{
-        NSLog(@"child chain: %@",tempNode.name);
+        NSLog(@"child chain end: %@",targetNode.name);
     }
 }
+
 
 
 -(void)beginGame{
@@ -265,18 +271,28 @@
     if (player.position.y < ground.position.y){
         self.gameState = 2;
         NSLog(@"GameScean/determinGameState- Game Over");
-        [self endGame];
-        [self loadLevel:self.currentLevel];
+        NSLog(@"GameScean/touchesBegan- Player coord: ( %f, %f )",player.position.x, player.position.y);
+        NSLog(@"GameScean/touchesBegan- Finish coord: ( %f, %f )",self.finishCoord.x, self.finishCoord.y);
+        NSLog(@"GameScean/touchesBegan- fail Y cord: %f", ground.position.y);
+        NSLog(@"test end");
         
+        [self endGame];
     }else if(player.position.x > self.finishCoord.x) {
         self.gameState = 3;
-        [self endGame];
+        NSLog(@"GameScean/determinGameState- level complete");
+        NSLog(@"GameScean/touchesBegan- Player coord: ( %f, %f )",player.position.x, player.position.y);
+        NSLog(@"GameScean/touchesBegan- Finish coord: ( %f, %f )",self.finishCoord.x, self.finishCoord.y);
+        NSLog(@"GameScean/touchesBegan- fail Y cord: %f", ground.position.y);
+        NSLog(@"test end");
         if(self.currentLevel != self.levelData.levelsArray.count){
+            NSLog(@"GameScean/determinGameState- incrementing current level");
             self.currentLevel++;
         }
-        [self loadLevel:self.currentLevel];
+        
+        [self endGame];
         
     }else if( self.gameState == 4){
+        NSLog(@"GameScean/determinGameState- paused");
         [self pauseGame];
         
     }else if (self.gameState> self.numGameState - 1){
@@ -308,10 +324,12 @@
     NSLog(@"GameScean/resetStage- Resetting Scene");
     [lbSKScore resetScore];
     player.physicsBody.dynamic = false;
+    [player removeAllActions];
     [player removeActionForKey:@"moveXPositiveForever"];
     player.position = CGPointMake(0, 0);
+    [self removeChildChain:ground];
     [ground removeAllChildren];
-    //[self loadTestLevel];
+    [self loadLevel:self.currentLevel];
     self.gameState = 0;
 }
 

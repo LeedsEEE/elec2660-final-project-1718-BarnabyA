@@ -18,6 +18,7 @@
 
 static const uint32_t bitMaskCategoryPlayer = 0x1 << 0;
 static const uint32_t bitMaskCategoryGameObject = 0x1 << 1;
+//static const uint32_t bitMaskCategoryGameObjectFinish = 0x1 << 2;
 
 +(id)player
 {
