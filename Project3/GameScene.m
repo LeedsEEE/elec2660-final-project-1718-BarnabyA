@@ -187,7 +187,7 @@
         player.cannotJump = false;
         player.isInAir = false;
         [self beginGame];
-        
+        [self getChildChain:ground];
     } else if (self.gameState == 1){
         NSLog(@"GameScean/touchesBegan- Jump");
         //[playerTemp jump];
@@ -203,6 +203,21 @@
     }
     
 }
+
+-(void)getChildChain:(SKNode *)targetNode{
+    bool child;
+    SKNode *tempNode = [[SKNode alloc]init];
+    if (targetNode.children == NULL) {
+        tempNode = targetNode.children[0];
+        [self getChildChain:tempNode];
+    }else{
+        NSLog(@"child chain: %@",tempNode.name);
+    }
+    
+    
+    
+}
+
 
 -(void)beginGame{
     self.gameState = 1;
