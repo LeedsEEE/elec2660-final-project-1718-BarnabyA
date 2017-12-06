@@ -51,9 +51,12 @@ static const uint32_t bitMaskCategoryGameObject = 0x1 << 1;
         NSLog(@"Player/jump- jump impulse of 120 applied");
         
     }
-    
 }
-
+-(void)pause{
+    self.physicsBody.dynamic = false;
+    self.isInAir = false;
+    [self removeActionForKey:@"moveXPositiveForever"];
+}
 
 
 

@@ -18,5 +18,6 @@
 
 -(void)moveXPositiveForever:(float)speed;
 -(void)jump;
+-(void)pause;
 
 @end

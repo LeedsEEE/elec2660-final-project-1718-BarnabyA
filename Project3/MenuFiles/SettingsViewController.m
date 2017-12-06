@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 
+
 @interface SettingsViewController ()
 
 @end
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.lbSettingsDiffuculty.text = [NSString stringWithFormat:@"Difficulty: %0.f", self.slSettingsDifficulty.value];
     // Do any additional setup after loading the view.
 }
 
@@ -23,6 +25,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)slSettingsDifficulty:(UISlider *)sender {
+    self.lbSettingsDiffuculty.text = [NSString stringWithFormat:@"Difficulty: %0.f", self.slSettingsDifficulty.value];
+}
+
+
 
 /*
 #pragma mark - Navigation
@@ -33,5 +41,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

@@ -22,6 +22,8 @@
 		946531781FC74F31007A33B8 /* GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531771FC74F31007A33B8 /* GameObjects.m */; };
 		9496A0F01FD71A3C00DC39E0 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */; };
 		9496A0F31FD7244E00DC39E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */; };
+		F55F12491FD8501400CFD96B /* UserDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F55F12481FD8501400CFD96B /* UserDataModel.m */; };
+		F55F124F1FD8598E00CFD96B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F55F124E1FD8598E00CFD96B /* Settings.m */; };
 		F5A2EDC81FD4E31800B46594 /* GameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A2EDC71FD4E31800B46594 /* GameLabel.m */; };
 		F5B855A31FCE346B000ADDBE /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A21FCE346B000ADDBE /* Level.m */; };
 		F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */; };
@@ -73,6 +75,10 @@
 		9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleViewController.m; path = MenuFiles/TitleViewController.m; sourceTree = "<group>"; };
 		9496A0F11FD7244E00DC39E0 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = MenuFiles/SettingsViewController.h; sourceTree = "<group>"; };
 		9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = MenuFiles/SettingsViewController.m; sourceTree = "<group>"; };
+		F55F12471FD8501400CFD96B /* UserDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataModel.h; sourceTree = "<group>"; };
+		F55F12481FD8501400CFD96B /* UserDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataModel.m; sourceTree = "<group>"; };
+		F55F124D1FD8598E00CFD96B /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		F55F124E1FD8598E00CFD96B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		F5A2EDC61FD4E31800B46594 /* GameLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLabel.h; sourceTree = "<group>"; };
 		F5A2EDC71FD4E31800B46594 /* GameLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLabel.m; sourceTree = "<group>"; };
 		F5B855A11FCE346B000ADDBE /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
@@ -177,6 +183,10 @@
 				9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */,
 				9496A0F11FD7244E00DC39E0 /* SettingsViewController.h */,
 				9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */,
+				F55F12471FD8501400CFD96B /* UserDataModel.h */,
+				F55F12481FD8501400CFD96B /* UserDataModel.m */,
+				F55F124D1FD8598E00CFD96B /* Settings.h */,
+				F55F124E1FD8598E00CFD96B /* Settings.m */,
 			);
 			name = MenuFiles;
 			sourceTree = "<group>";
@@ -347,8 +357,10 @@
 			files = (
 				F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */,
 				F5A2EDC81FD4E31800B46594 /* GameLabel.m in Sources */,
+				F55F124F1FD8598E00CFD96B /* Settings.m in Sources */,
 				9465314B1FC73F98007A33B8 /* GameViewController.m in Sources */,
 				946531411FC73F98007A33B8 /* AppDelegate.m in Sources */,
+				F55F12491FD8501400CFD96B /* UserDataModel.m in Sources */,
 				F5B855A31FCE346B000ADDBE /* Level.m in Sources */,
 				946531481FC73F98007A33B8 /* GameScene.m in Sources */,
 				9465313E1FC73F98007A33B8 /* main.m in Sources */,

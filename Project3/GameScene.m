@@ -22,6 +22,8 @@
 
 @implementation GameScene {
     
+    UIViewController *GameViewController;
+    
     //Defining nodes in scene
     GameObjects *ground;
     Player *player;
@@ -40,6 +42,7 @@
 
 #pragma mark - level Generation
 - (void)didMoveToView:(SKView *)view {
+    GameViewController = self.view.window.rootViewController;
     self.currentLevel = 0;
     self.Gamefont = @"TrebuchetMS";
     [self initialize];
@@ -47,7 +50,7 @@
 
 -(void)initialize{
     NSLog(@"GameScean/initialize- frame sizes %.0f,%0.f", self.frame.size.width,self.frame.size.height);
-    self.numGameState= 5;
+    self.numGameState= 6;
     self.difficulty = 1.5;
     //getting camera node from sks scene
     _nodeCamera = (SKCameraNode *)[self childNodeWithName:@"nodeCamera"];
@@ -173,6 +176,9 @@
     }else if(self.gameState == 5){
         //move to title menu
         
+        //[GameViewController prepareForSegue:@"GameTitle" sender:@"GameViewController"];
+        
+    
     }else if (self.gameState > self.numGameState - 1){
         NSLog(@"GameScean/touchesBegan- ERROR invalid game state");
     }
@@ -232,23 +238,20 @@
         self.gameState = 2;
         [self endGame];
         
-    }else if(player.position.x > self.finishCoord.x) {
+    }else if(player.position.x > self.finishCoord.x && self.gameState != 5) {
         //Level complete state
-        
         self.gameState = 3;
-        if(self.currentLevel != self.levelData.levelsArray.count){
+        if(self.currentLevel < self.levelData.levelsArray.count - 1){
             NSLog(@"GameScean/determinGameState- incrementing current level");
             self.currentLevel++;
             [self endGame];
         }else{
             SKLabelNode *completionMsg = [GameLabel lbCompleteMsg:self.Gamefont];
             self.gameState = 5;
-            player.physicsBody.dynamic = false;
-            [player removeAllActions];
+            [player pause];
             [_nodeCamera addChild:completionMsg];
             [self alterLevelAlpha:0.25 includeCamera:false];
         }
-        
         
     }else if( self.gameState == 4){
         NSLog(@"GameScean/determinGameState- paused");
@@ -284,7 +287,6 @@
     [lbSKScore resetScore];
     player.physicsBody.dynamic = false;
     [player removeAllActions];
-    [player removeActionForKey:@"moveXPositiveForever"];
     player.position = CGPointMake(0, 0);
     [self removeChildChain:ground];
     [ground removeAllChildren];

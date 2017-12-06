@@ -13,7 +13,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // Load the SKScene from 'GameScene.sks'
     NSLog(@"GameViewController - GameScene node beninging init");
     GameScene *scene = (GameScene *)[SKScene nodeWithFileNamed:@"GameScene"];
@@ -50,5 +50,11 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //[self presentViewController:TitleViewController animated:true completion:nil];
+    [self performSegueWithIdentifier:@"GameTitle" sender:sender];
+}
+
 
 @end

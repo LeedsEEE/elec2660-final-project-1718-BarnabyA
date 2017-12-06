@@ -21,12 +21,12 @@
         NSLog(@"DataModelLevels/init- initializing data model levels");
         self.levelsArray = [[NSMutableArray alloc] init];
         Level *level1 = [self loadLevel1];
-        Level *level2 = [self loadLevel2];
-        Level *level3 = [self loadLevel3];
+        //Level *level2 = [self loadLevel2];
+        //Level *level3 = [self loadLevel3];
 
         [self.levelsArray addObject:level1];
-        [self.levelsArray addObject:level2];
-        [self.levelsArray addObject:level3];
+        //[self.levelsArray addObject:level2];
+        //[self.levelsArray addObject:level3];
         NSLog(@"DataModelLevels/init- number of levels: %lu", self.levelsArray.count);
     }
     return self;
@@ -36,7 +36,7 @@
     //creation of temporary variables
     NSLog(@"DataModelLevels/loadLevel1- Preloading Level1");
     Level *level = [[Level alloc] init];
-    level.numGameObjects = 5;
+    level.numGameObjects = 2;
     level.colour = [UIColor blueColor];
     GameObjects *tempGameObject = [GameObjects platform];
     
