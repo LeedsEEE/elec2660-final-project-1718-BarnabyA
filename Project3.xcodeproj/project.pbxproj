@@ -14,7 +14,6 @@
 		946531451FC73F98007A33B8 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 946531441FC73F98007A33B8 /* Actions.sks */; };
 		946531481FC73F98007A33B8 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531471FC73F98007A33B8 /* GameScene.m */; };
 		9465314B1FC73F98007A33B8 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465314A1FC73F98007A33B8 /* GameViewController.m */; };
-		9465314E1FC73F98007A33B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9465314C1FC73F98007A33B8 /* Main.storyboard */; };
 		946531501FC73F98007A33B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9465314F1FC73F98007A33B8 /* Assets.xcassets */; };
 		946531531FC73F98007A33B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 946531511FC73F98007A33B8 /* LaunchScreen.storyboard */; };
 		9465315E1FC73F98007A33B8 /* Project3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465315D1FC73F98007A33B8 /* Project3Tests.m */; };
@@ -24,9 +23,12 @@
 		9496A0F31FD7244E00DC39E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */; };
 		F55F12491FD8501400CFD96B /* UserDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F55F12481FD8501400CFD96B /* UserDataModel.m */; };
 		F55F124F1FD8598E00CFD96B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F55F124E1FD8598E00CFD96B /* Settings.m */; };
+		F58674DF1FD96E520058D745 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F58674DE1FD96E520058D745 /* TutorialViewController.m */; };
+		F58674E21FD975D40058D745 /* DefualtSlideShowImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F58674E11FD975D40058D745 /* DefualtSlideShowImage.jpg */; };
 		F5A2EDC81FD4E31800B46594 /* GameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A2EDC71FD4E31800B46594 /* GameLabel.m */; };
 		F5B855A31FCE346B000ADDBE /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A21FCE346B000ADDBE /* Level.m */; };
 		F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */; };
+		F5DAC4F31FD9777D0064F2A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5DAC4F21FD9777D0064F2A6 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +61,6 @@
 		946531471FC73F98007A33B8 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		946531491FC73F98007A33B8 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		9465314A1FC73F98007A33B8 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		9465314D1FC73F98007A33B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9465314F1FC73F98007A33B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		946531521FC73F98007A33B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		946531541FC73F98007A33B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,12 +80,16 @@
 		F55F12481FD8501400CFD96B /* UserDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataModel.m; sourceTree = "<group>"; };
 		F55F124D1FD8598E00CFD96B /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		F55F124E1FD8598E00CFD96B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		F58674DD1FD96E520058D745 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		F58674DE1FD96E520058D745 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		F58674E11FD975D40058D745 /* DefualtSlideShowImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = DefualtSlideShowImage.jpg; path = ../../../Downloads/DefualtSlideShowImage.jpg; sourceTree = "<group>"; };
 		F5A2EDC61FD4E31800B46594 /* GameLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLabel.h; sourceTree = "<group>"; };
 		F5A2EDC71FD4E31800B46594 /* GameLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLabel.m; sourceTree = "<group>"; };
 		F5B855A11FCE346B000ADDBE /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		F5B855A21FCE346B000ADDBE /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		F5B855A41FCE353D000ADDBE /* DataModelLevels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelLevels.h; sourceTree = "<group>"; };
 		F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelLevels.m; sourceTree = "<group>"; };
+		F5DAC4F21FD9777D0064F2A6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +146,7 @@
 				946531401FC73F98007A33B8 /* AppDelegate.m */,
 				946531421FC73F98007A33B8 /* GameScene.sks */,
 				946531441FC73F98007A33B8 /* Actions.sks */,
-				9465314C1FC73F98007A33B8 /* Main.storyboard */,
+				F5DAC4F21FD9777D0064F2A6 /* Main.storyboard */,
 				9465314F1FC73F98007A33B8 /* Assets.xcassets */,
 				946531511FC73F98007A33B8 /* LaunchScreen.storyboard */,
 				946531541FC73F98007A33B8 /* Info.plist */,
@@ -179,6 +184,7 @@
 		948741061FD740550079C585 /* MenuFiles */ = {
 			isa = PBXGroup;
 			children = (
+				F58674E01FD975B40058D745 /* TutorialImages */,
 				9496A0EE1FD71A3C00DC39E0 /* TitleViewController.h */,
 				9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */,
 				9496A0F11FD7244E00DC39E0 /* SettingsViewController.h */,
@@ -187,6 +193,8 @@
 				F55F12481FD8501400CFD96B /* UserDataModel.m */,
 				F55F124D1FD8598E00CFD96B /* Settings.h */,
 				F55F124E1FD8598E00CFD96B /* Settings.m */,
+				F58674DD1FD96E520058D745 /* TutorialViewController.h */,
+				F58674DE1FD96E520058D745 /* TutorialViewController.m */,
 			);
 			name = MenuFiles;
 			sourceTree = "<group>";
@@ -218,6 +226,14 @@
 			children = (
 			);
 			name = GameAssests;
+			sourceTree = "<group>";
+		};
+		F58674E01FD975B40058D745 /* TutorialImages */ = {
+			isa = PBXGroup;
+			children = (
+				F58674E11FD975D40058D745 /* DefualtSlideShowImage.jpg */,
+			);
+			name = TutorialImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,9 +342,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9465314E1FC73F98007A33B8 /* Main.storyboard in Resources */,
 				946531431FC73F98007A33B8 /* GameScene.sks in Resources */,
+				F58674E21FD975D40058D745 /* DefualtSlideShowImage.jpg in Resources */,
 				946531501FC73F98007A33B8 /* Assets.xcassets in Resources */,
+				F5DAC4F31FD9777D0064F2A6 /* Main.storyboard in Resources */,
 				946531531FC73F98007A33B8 /* LaunchScreen.storyboard in Resources */,
 				946531451FC73F98007A33B8 /* Actions.sks in Resources */,
 			);
@@ -355,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F58674DF1FD96E520058D745 /* TutorialViewController.m in Sources */,
 				F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */,
 				F5A2EDC81FD4E31800B46594 /* GameLabel.m in Sources */,
 				F55F124F1FD8598E00CFD96B /* Settings.m in Sources */,
@@ -403,14 +421,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9465314C1FC73F98007A33B8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9465314D1FC73F98007A33B8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		946531511FC73F98007A33B8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

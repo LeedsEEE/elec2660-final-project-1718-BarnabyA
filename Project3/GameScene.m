@@ -173,11 +173,8 @@
         [self beginGame];
     }else if(self.gameState == 5){
         //move to title menu
-        
         [self._parentViewController performSegueWithIdentifier:@"GameTitle" sender:self._parentViewController];
-        
-        
-        
+
     }else if (self.gameState > self.numGameState - 1){
         NSLog(@"GameScean/touchesBegan- ERROR invalid game state");
     }
