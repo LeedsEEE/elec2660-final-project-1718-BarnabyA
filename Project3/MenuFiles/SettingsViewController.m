@@ -14,8 +14,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Settings %0.f",self.userData.settings.difficulty);
-    NSLog(@"stop test");
     
     self.lbSettingsDiffuculty.text = [NSString stringWithFormat:@"Difficulty: %0.f", self.slSettingsDifficulty.value];
     // Do any additional setup after loading the view.
@@ -33,10 +31,7 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqual: @"SettingsTitle"]){
-        TitleViewController *_titleViewController = [segue destinationViewController];
-        _titleViewController.userData = self.userData;
-    }
+
 }
 
 /*

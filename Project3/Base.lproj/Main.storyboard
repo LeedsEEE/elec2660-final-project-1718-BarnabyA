@@ -1,176 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6gd-jp-kZf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings View Controller-->
-        <scene sceneID="es3-q8-DWk">
-            <objects>
-                <viewController id="gN2-if-MtF" customClass="SettingsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2dQ-kW-1g2"/>
-                        <viewControllerLayoutGuide type="bottom" id="Uwm-il-Q8h"/>
-                    </layoutGuides>
-                    <view key="view" tag="1" contentMode="scaleToFill" id="kU9-V1-8q0">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9t-tV-H4w">
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="26"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="8t6-qk-96f">
-                                <color key="tintColor" red="0.0" green="0.40198701619999999" blue="0.8928565383" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="TbH-ee-jIA"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="slSettingsDifficulty:" destination="gN2-if-MtF" eventType="valueChanged" id="bwE-v1-f6V"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmV-J7-PKv">
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="26"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jh9-JT-keD">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="0Ma-oe-iRS"/>
-                                    <constraint firstAttribute="width" constant="56" id="Bfd-Ia-Nnu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
-                                <state key="normal" title="&lt;Back">
-                                    <color key="titleColor" red="0.002253442554" green="0.40037783630000001" blue="0.89175884159999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="6gd-jp-kZf" kind="show" identifier="SettingsTitleBack" id="Tje-P1-pC1"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8x-Lz-dpL">
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="26"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNA-UF-4aJ">
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="75"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Uwm-il-Q8h" firstAttribute="top" secondItem="8t6-qk-96f" secondAttribute="bottom" constant="48" id="1N9-Jm-U7q"/>
-                            <constraint firstItem="a8x-Lz-dpL" firstAttribute="trailing" secondItem="8t6-qk-96f" secondAttribute="trailing" id="7gq-5c-d0A"/>
-                            <constraint firstItem="KmV-J7-PKv" firstAttribute="leading" secondItem="8t6-qk-96f" secondAttribute="leading" id="A7t-ig-5A3"/>
-                            <constraint firstItem="8t6-qk-96f" firstAttribute="top" secondItem="a8x-Lz-dpL" secondAttribute="bottom" constant="2" id="BKR-HQ-qlr"/>
-                            <constraint firstItem="m9t-tV-H4w" firstAttribute="centerX" secondItem="8t6-qk-96f" secondAttribute="centerX" id="EdD-aD-23v"/>
-                            <constraint firstItem="8t6-qk-96f" firstAttribute="top" secondItem="KmV-J7-PKv" secondAttribute="bottom" constant="2" id="ICE-FP-d3T"/>
-                            <constraint firstItem="Jh9-JT-keD" firstAttribute="top" secondItem="2dQ-kW-1g2" secondAttribute="bottom" id="Wyc-hZ-B0c"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8t6-qk-96f" secondAttribute="trailing" constant="16" id="ccA-b6-TZ2"/>
-                            <constraint firstItem="8t6-qk-96f" firstAttribute="leading" secondItem="kU9-V1-8q0" secondAttribute="leadingMargin" constant="15" id="eQ2-j7-Sqr"/>
-                            <constraint firstItem="8t6-qk-96f" firstAttribute="top" secondItem="m9t-tV-H4w" secondAttribute="bottom" constant="21" id="eZW-dV-8PR"/>
-                            <constraint firstItem="tNA-UF-4aJ" firstAttribute="centerX" secondItem="kU9-V1-8q0" secondAttribute="centerX" id="nje-Up-acb"/>
-                            <constraint firstItem="Jh9-JT-keD" firstAttribute="leading" secondItem="kU9-V1-8q0" secondAttribute="leadingMargin" id="u0I-Y2-9dQ"/>
-                            <constraint firstItem="tNA-UF-4aJ" firstAttribute="top" secondItem="2dQ-kW-1g2" secondAttribute="bottom" constant="8" id="zVr-3b-GfL"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="btSettingsBack" destination="Jh9-JT-keD" id="wxD-It-zP4"/>
-                        <outlet property="lbSettingsDiffuculty" destination="m9t-tV-H4w" id="HWK-y7-QiA"/>
-                        <outlet property="lbSettingsEasy" destination="KmV-J7-PKv" id="VX9-2b-Fpg"/>
-                        <outlet property="lbSettingsHard" destination="a8x-Lz-dpL" id="6fF-Qr-kuF"/>
-                        <outlet property="lbSettingsTitle" destination="tNA-UF-4aJ" id="3gi-ir-D3i"/>
-                        <outlet property="slSettingsDifficulty" destination="8t6-qk-96f" id="05h-Zw-wPj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VH7-2d-RNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-25.637181409295355" y="-855.20000000000005"/>
-        </scene>
         <!--Title View Controller-->
-        <scene sceneID="Oz2-fP-T6v">
+        <scene sceneID="c8w-cf-kXa">
             <objects>
-                <viewController id="6gd-jp-kZf" customClass="TitleViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="RIDTitle" storyboardIdentifier="SIDTitle" id="513-6P-mOb" customClass="TitleViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1IM-iO-HqK"/>
-                        <viewControllerLayoutGuide type="bottom" id="eS6-Ha-jh1"/>
+                        <viewControllerLayoutGuide type="top" id="Uv8-d0-ItL"/>
+                        <viewControllerLayoutGuide type="bottom" id="AOG-hf-TVN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4fN-lh-Tqe">
+                    <view key="view" contentMode="scaleToFill" id="NjC-U1-JyU">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Possible Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB7-kM-9gj">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="611" id="DYw-Rj-4pa"/>
-                                    <constraint firstAttribute="height" constant="59" id="vd4-fU-5BV"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Possible Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTr-wx-Lna">
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="68"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kP9-cK-LG8">
-                                <color key="backgroundColor" red="0.0022534425538354302" green="0.40037783634183821" blue="0.8917588416223351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysi-bR-7ZH">
+                                <color key="backgroundColor" red="0.033217748544917436" green="0.33154830263755808" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="302" id="1rt-b9-VZC"/>
-                                    <constraint firstAttribute="height" constant="96" id="XmT-nS-W5u"/>
+                                    <constraint firstAttribute="width" constant="190" id="2yy-d4-Qgr"/>
+                                    <constraint firstAttribute="height" constant="81" id="9RK-cb-9st"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="52"/>
-                                <state key="normal" title="Play Game">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" identifier="TitleGame" id="h7I-Lb-DNn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sb6-Bq-O9f">
-                                <color key="backgroundColor" red="0.0" green="0.40198701620101929" blue="0.89285653829574585" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="237" id="2BF-3W-6uz"/>
-                                    <constraint firstAttribute="height" constant="72" id="NlJ-Wk-umh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="39"/>
-                                <state key="normal" title="Tuturial">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="xmD-UC-nlv" kind="show" identifier="TitleTutorial" id="NVx-oU-h3K"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGf-bI-RbS">
-                                <color key="backgroundColor" red="0.002253442554" green="0.40037783630000001" blue="0.89175884159999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="39"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="41"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gN2-if-MtF" kind="show" identifier="TitleSettings" id="3ep-z9-hgD"/>
+                                    <action selector="btTitleSettings:" destination="513-6P-mOb" eventType="touchUpInside" id="aZs-bb-SMI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OR-nt-oEG">
+                                <color key="backgroundColor" red="0.033217748540000001" green="0.33154830260000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="8CL-2z-vjx"/>
+                                    <constraint firstAttribute="width" constant="190" id="xzr-Ki-EZ4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="41"/>
+                                <state key="normal" title="Tutorial">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btTitleTutorial:" destination="513-6P-mOb" eventType="touchUpInside" id="MYF-na-VMP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LX-7G-Pac">
+                                <color key="backgroundColor" red="0.033217748540000001" green="0.33154830260000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="Clk-J8-4Gz"/>
+                                    <constraint firstAttribute="width" constant="261" id="Wbz-Ag-D7q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="46"/>
+                                <state key="normal" title="Play Game">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btTitlePlay:" destination="513-6P-mOb" eventType="touchUpInside" id="673-Sy-wXC"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fB7-kM-9gj" firstAttribute="centerX" secondItem="4fN-lh-Tqe" secondAttribute="centerX" id="8ya-nH-0Nu"/>
-                            <constraint firstItem="yGf-bI-RbS" firstAttribute="centerY" secondItem="Sb6-Bq-O9f" secondAttribute="centerY" id="FS2-li-2aP"/>
-                            <constraint firstItem="kP9-cK-LG8" firstAttribute="top" secondItem="Sb6-Bq-O9f" secondAttribute="bottom" constant="36" id="In3-YC-sHf"/>
-                            <constraint firstItem="fB7-kM-9gj" firstAttribute="top" secondItem="1IM-iO-HqK" secondAttribute="bottom" id="JDg-f2-wdX"/>
-                            <constraint firstItem="yGf-bI-RbS" firstAttribute="leading" secondItem="4fN-lh-Tqe" secondAttribute="leadingMargin" constant="10" id="N4Q-UP-6Df"/>
-                            <constraint firstItem="eS6-Ha-jh1" firstAttribute="top" secondItem="kP9-cK-LG8" secondAttribute="bottom" constant="20" id="Wen-Wz-bgG"/>
-                            <constraint firstItem="kP9-cK-LG8" firstAttribute="centerX" secondItem="4fN-lh-Tqe" secondAttribute="centerX" id="aS9-uI-A99"/>
-                            <constraint firstItem="yGf-bI-RbS" firstAttribute="width" secondItem="Sb6-Bq-O9f" secondAttribute="width" id="gUj-gR-fhJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Sb6-Bq-O9f" secondAttribute="trailing" constant="10" id="kOc-Sl-arG"/>
-                            <constraint firstItem="yGf-bI-RbS" firstAttribute="height" secondItem="Sb6-Bq-O9f" secondAttribute="height" id="l2b-Eh-tIe"/>
+                            <constraint firstItem="1OR-nt-oEG" firstAttribute="centerY" secondItem="Ysi-bR-7ZH" secondAttribute="centerY" id="2DK-bc-Y2E"/>
+                            <constraint firstItem="LTr-wx-Lna" firstAttribute="top" secondItem="Uv8-d0-ItL" secondAttribute="bottom" id="62e-TV-2MD"/>
+                            <constraint firstItem="Ysi-bR-7ZH" firstAttribute="leading" secondItem="NjC-U1-JyU" secondAttribute="leadingMargin" constant="30" id="9EQ-iU-f5x"/>
+                            <constraint firstItem="1OR-nt-oEG" firstAttribute="width" secondItem="Ysi-bR-7ZH" secondAttribute="width" id="QzP-Zd-lE3"/>
+                            <constraint firstItem="4LX-7G-Pac" firstAttribute="top" secondItem="Ysi-bR-7ZH" secondAttribute="bottom" constant="30" id="fbz-Lb-vtD"/>
+                            <constraint firstItem="1OR-nt-oEG" firstAttribute="height" secondItem="Ysi-bR-7ZH" secondAttribute="height" id="hU2-ij-IFg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1OR-nt-oEG" secondAttribute="trailing" constant="30" id="k1x-RV-tIL"/>
+                            <constraint firstItem="LTr-wx-Lna" firstAttribute="centerX" secondItem="NjC-U1-JyU" secondAttribute="centerX" id="ody-X6-Ve9"/>
+                            <constraint firstItem="AOG-hf-TVN" firstAttribute="top" secondItem="4LX-7G-Pac" secondAttribute="bottom" constant="20" id="vyf-Tj-coA"/>
+                            <constraint firstItem="4LX-7G-Pac" firstAttribute="centerX" secondItem="NjC-U1-JyU" secondAttribute="centerX" id="ybg-Lc-UHb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btTitlePlay" destination="4LX-7G-Pac" id="TsF-yB-wgl"/>
+                        <outlet property="btTitleSettings" destination="Ysi-bR-7ZH" id="9uW-HB-1wl"/>
+                        <outlet property="btTitleTutorial" destination="1OR-nt-oEG" id="lN5-XF-uE7"/>
+                        <outlet property="lbTitleTitle" destination="LTr-wx-Lna" id="MHV-IK-OCf"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XM3-wr-hji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aSd-h7-5ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-726.38680659670172" y="34.399999999999999"/>
+            <point key="canvasLocation" x="-112.89355322338831" y="-444"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -186,71 +106,13 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="6gd-jp-kZf" kind="show" identifier="GameTitle" id="Cex-NM-djX"/>
+                        <segue destination="513-6P-mOb" kind="show" identifier="GameTitle" id="XCF-9n-8I3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1072" y="-855"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Yp0-th-hqu">
-            <objects>
-                <viewController id="xmD-UC-nlv" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3Jo-ek-lAh"/>
-                        <viewControllerLayoutGuide type="bottom" id="LyK-Cu-mBl"/>
-                    </layoutGuides>
-                    <view key="view" tag="2" contentMode="scaleToFill" id="uOv-qd-8az">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutorial Image: 1/3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5u-53-pii">
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="40"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyC-aV-Yev">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="WY7-FQ-3Sa"/>
-                                    <constraint firstAttribute="width" constant="56" id="tWG-iR-9HB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
-                                <state key="normal" title="&lt;Back">
-                                    <color key="titleColor" red="0.002253442554" green="0.40037783630000001" blue="0.89175884159999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="6gd-jp-kZf" kind="show" identifier="TutorialTitleBack" id="Qak-E2-xUl"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4M5-nq-dHq">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="547" id="22N-wU-qmy"/>
-                                    <constraint firstAttribute="width" secondItem="4M5-nq-dHq" secondAttribute="height" multiplier="547:278" id="cZK-n6-2gy"/>
-                                    <constraint firstAttribute="height" constant="278" id="zgR-6o-Hz8"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="4M5-nq-dHq" firstAttribute="top" secondItem="z5u-53-pii" secondAttribute="bottom" constant="10" id="48P-ya-WiW"/>
-                            <constraint firstItem="4M5-nq-dHq" firstAttribute="centerX" secondItem="uOv-qd-8az" secondAttribute="centerX" id="HHe-iy-HHa"/>
-                            <constraint firstItem="z5u-53-pii" firstAttribute="centerX" secondItem="uOv-qd-8az" secondAttribute="centerX" id="URC-ik-26w"/>
-                            <constraint firstItem="z5u-53-pii" firstAttribute="top" secondItem="3Jo-ek-lAh" secondAttribute="bottom" id="bfa-Vs-ce7"/>
-                            <constraint firstItem="4M5-nq-dHq" firstAttribute="leading" secondItem="uOv-qd-8az" secondAttribute="leadingMargin" constant="40" id="hg6-9Z-0NE"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="AyC-aV-Yev" secondAttribute="leading" id="jtv-Xl-fb8"/>
-                            <constraint firstItem="LyK-Cu-mBl" firstAttribute="top" secondItem="4M5-nq-dHq" secondAttribute="bottom" constant="20" id="njB-Tp-3xV"/>
-                            <constraint firstItem="AyC-aV-Yev" firstAttribute="top" secondItem="3Jo-ek-lAh" secondAttribute="bottom" id="y0S-yT-i8O"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YdI-ay-b6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1427" y="924"/>
+            <point key="canvasLocation" x="814" y="-444"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Tje-P1-pC1"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.002357660793" green="0.54941093919999995" blue="0.99895268680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

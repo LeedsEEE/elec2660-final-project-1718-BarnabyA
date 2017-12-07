@@ -18,8 +18,7 @@
     // Load the SKScene from 'GameScene.sks'
     NSLog(@"GameViewController - GameScene node beninging init");
     GameScene *scene = (GameScene *)[SKScene nodeWithFileNamed:@"GameScene"];
-    scene.userData = self.userData;
-    
+    scene._parentViewController = self;
     // Set the scale mode to scale to fit the window
     scene.scaleMode = SKSceneScaleModeAspectFill;
     

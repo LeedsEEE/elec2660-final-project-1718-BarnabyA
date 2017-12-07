@@ -40,12 +40,9 @@
 #pragma mark - level Generation
 - (void)didMoveToView:(SKView *)view {
     //GameViewController = (UIViewController *)self.view.window.rootViewController;
-    NSLog(@"%0.f",self.userData.settings.difficulty);
     self.currentLevel = 0;
     self.Gamefont = @"TrebuchetMS";
     self.levelData = [[DataModelLevels alloc]init];
-    self.userData = [[UserDataModel alloc]init];
-    
     
     [self initializeGame];
 }
@@ -177,7 +174,10 @@
     }else if(self.gameState == 5){
         //move to title menu
         
-        [self._parentViewController performSegueWithIdentifier:@"GameTitle" sender:self];
+        [self._parentViewController performSegueWithIdentifier:@"GameTitle" sender:self._parentViewController];
+        
+        
+        
     }else if (self.gameState > self.numGameState - 1){
         NSLog(@"GameScean/touchesBegan- ERROR invalid game state");
     }
@@ -192,7 +192,7 @@
     [self setCameraTracking:player];
     [self alterLevelAlpha:1 includeCamera:true];
     player.physicsBody.dynamic = true;
-    [player moveXPositiveForever:self.userData.settings.difficulty];
+    [player moveXPositiveForever:1.5];
     
 }
 

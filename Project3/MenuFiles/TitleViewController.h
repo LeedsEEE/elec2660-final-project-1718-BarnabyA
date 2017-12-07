@@ -13,6 +13,19 @@
 
 @interface TitleViewController : UIViewController
 
-@property (strong, nonatomic)UserDataModel *userData;
+@property (weak, nonatomic) IBOutlet UILabel *lbTitleTitle;
+@property (weak, nonatomic) IBOutlet UIButton *btTitlePlay;
+@property (weak, nonatomic) IBOutlet UIButton *btTitleSettings;
+@property (weak, nonatomic) IBOutlet UIButton *btTitleTutorial;
+
+- (IBAction)btTitlePlay:(UIButton *)sender;
+- (IBAction)btTitleSettings:(UIButton *)sender;
+- (IBAction)btTitleTutorial:(UIButton *)sender;
+
+
+
+
+
+
 
 @end

@@ -30,13 +30,7 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier  isEqual: @"TitleGame"]){
-        GameViewController *_gameViewController = [segue destinationViewController];
-        _gameViewController.userData = self.userData;
-    }else if([segue.identifier  isEqual: @"TitleSettings"]){
-        SettingsViewController *_settingsViewController = [segue destinationViewController];
-        _settingsViewController.userData = self.userData;
-    }
+
 }
 
 
@@ -50,4 +44,13 @@
 }
 */
 
+
+- (IBAction)btTitlePlay:(UIButton *)sender {
+}
+
+- (IBAction)btTitleSettings:(UIButton *)sender {
+}
+
+- (IBAction)btTitleTutorial:(UIButton *)sender {
+}
 @end

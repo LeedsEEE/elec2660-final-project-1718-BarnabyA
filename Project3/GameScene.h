@@ -17,7 +17,7 @@
 @interface GameScene : SKScene <SKPhysicsContactDelegate>
 
 @property (strong, nonatomic) DataModelLevels *levelData;
-@property (strong, nonatomic) UserDataModel *userData;
+//@property (strong, nonatomic) UserDataModel *userData;
 @property int currentLevel;
 @property NSString *Gamefont;
 @property UIViewController *_parentViewController;
