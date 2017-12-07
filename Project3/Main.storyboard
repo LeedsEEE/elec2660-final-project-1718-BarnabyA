@@ -51,6 +51,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btTitleTutorial:" destination="513-6P-mOb" eventType="touchUpInside" id="MYF-na-VMP"/>
+                                    <segue destination="Tft-CL-oIM" kind="show" identifier="TitleTutorial" id="Osr-OR-onr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LX-7G-Pac">
@@ -134,12 +135,10 @@
                                 <state key="normal" title="&lt;Back">
                                     <color key="titleColor" red="0.0" green="0.43818962569999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="513-6P-mOb" kind="show" identifier="TutorialTitle" id="Di1-cd-Y9r"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Glz-Yg-WpD">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Glz-Yg-WpD" secondAttribute="height" multiplier="499:276" id="jd6-T9-rVT"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW1-p4-jBi">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rW1-p4-jBi" secondAttribute="height" multiplier="56:191" id="4U6-GM-bCJ"/>
@@ -155,20 +154,25 @@
                                     <action selector="btTutorialSlideBack:" destination="Tft-CL-oIM" eventType="touchUpInside" id="q9W-bR-43R"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1xx-WD-wUJ">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1xx-WD-wUJ" secondAttribute="height" multiplier="173:92" id="SHq-fu-wdZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZTB-42-GN5" firstAttribute="top" secondItem="Ijx-xZ-4GB" secondAttribute="bottom" id="5zw-pP-NhC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rW1-p4-jBi" secondAttribute="trailing" id="7WW-oL-V5q"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Eya-Ie-5Gz" secondAttribute="leading" id="Af2-Hx-w1w"/>
-                            <constraint firstItem="kYW-hZ-dMo" firstAttribute="top" secondItem="Glz-Yg-WpD" secondAttribute="bottom" constant="20" id="KVY-aq-R3O"/>
                             <constraint firstItem="Eya-Ie-5Gz" firstAttribute="top" secondItem="Ijx-xZ-4GB" secondAttribute="bottom" id="Mep-JR-FI3"/>
-                            <constraint firstItem="rW1-p4-jBi" firstAttribute="centerY" secondItem="Glz-Yg-WpD" secondAttribute="centerY" id="OEZ-Qj-Xsk"/>
-                            <constraint firstItem="Glz-Yg-WpD" firstAttribute="top" secondItem="ZTB-42-GN5" secondAttribute="bottom" constant="7.5" id="SXX-LS-K47"/>
-                            <constraint firstItem="jWw-mN-ANC" firstAttribute="centerY" secondItem="Glz-Yg-WpD" secondAttribute="centerY" id="Vrj-jY-Tym"/>
+                            <constraint firstItem="kYW-hZ-dMo" firstAttribute="top" secondItem="1xx-WD-wUJ" secondAttribute="bottom" constant="20" id="RuY-yE-lvS"/>
+                            <constraint firstItem="rW1-p4-jBi" firstAttribute="centerY" secondItem="1xx-WD-wUJ" secondAttribute="centerY" id="afh-6C-In7"/>
                             <constraint firstItem="ZTB-42-GN5" firstAttribute="centerX" secondItem="b7u-EQ-Z4K" secondAttribute="centerX" id="bjY-Iv-Uc4"/>
                             <constraint firstAttribute="leadingMargin" secondItem="jWw-mN-ANC" secondAttribute="leading" id="bvD-0C-Jkd"/>
-                            <constraint firstItem="Glz-Yg-WpD" firstAttribute="centerX" secondItem="b7u-EQ-Z4K" secondAttribute="centerX" id="euz-ve-6Wm"/>
+                            <constraint firstItem="1xx-WD-wUJ" firstAttribute="centerX" secondItem="b7u-EQ-Z4K" secondAttribute="centerX" id="d7y-mm-OQy"/>
+                            <constraint firstItem="jWw-mN-ANC" firstAttribute="centerY" secondItem="rW1-p4-jBi" secondAttribute="centerY" id="fnd-Jq-nFo"/>
+                            <constraint firstItem="1xx-WD-wUJ" firstAttribute="top" secondItem="ZTB-42-GN5" secondAttribute="bottom" constant="7.5" id="lCs-62-egh"/>
                             <constraint firstItem="jWw-mN-ANC" firstAttribute="height" secondItem="rW1-p4-jBi" secondAttribute="height" id="w5D-lt-smI"/>
                         </constraints>
                     </view>
@@ -176,14 +180,12 @@
                         <outlet property="btTutorialBack" destination="Eya-Ie-5Gz" id="TsF-Cf-JSq"/>
                         <outlet property="btTutorialSlideBack" destination="jWw-mN-ANC" id="Ens-kl-D2A"/>
                         <outlet property="btTutorialSlideForward" destination="rW1-p4-jBi" id="2AC-OD-gc0"/>
-                        <outlet property="ivTutorialSlide" destination="Glz-Yg-WpD" id="YaG-xD-BlV"/>
-                        <outlet property="ivTutorialSlides" destination="Glz-Yg-WpD" id="Zur-YM-gm3"/>
                         <outlet property="lbTutorialTitle" destination="ZTB-42-GN5" id="oZP-zj-0yw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A86-yW-eCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-113" y="457"/>
+            <point key="canvasLocation" x="-113.79310344827587" y="456.80000000000001"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -207,5 +209,8 @@
             <point key="canvasLocation" x="814" y="-444"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Di1-cd-Y9r"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.002357660793" green="0.54941093919999995" blue="0.99895268680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
