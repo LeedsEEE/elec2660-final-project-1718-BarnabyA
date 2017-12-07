@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UserDataModel.h"
+#import "TitleViewController.h"
+
 
 @interface SettingsViewController : UIViewController
 
@@ -17,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbSettingsHard;
 @property (weak, nonatomic) IBOutlet UILabel *lbSettingsDiffuculty;
 @property (weak, nonatomic) IBOutlet UISlider *slSettingsDifficulty;
+@property (strong, nonatomic) UserDataModel *userData;
 
 - (IBAction)slSettingsDifficulty:(UISlider *)sender;
 

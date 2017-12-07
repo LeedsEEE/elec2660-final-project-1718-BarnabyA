@@ -21,15 +21,12 @@
 @end
 
 @implementation GameScene {
-    
-    UIViewController *GameViewController;
-    
     //Defining nodes in scene
     GameObjects *ground;
     Player *player;
     SKCameraNode *_nodeCamera;
     GameLabel *lbSKScore;
-    
+
     /* Game state
         0: Not Started
         1: Started
@@ -42,16 +39,20 @@
 
 #pragma mark - level Generation
 - (void)didMoveToView:(SKView *)view {
-    GameViewController = self.view.window.rootViewController;
+    //GameViewController = (UIViewController *)self.view.window.rootViewController;
+    NSLog(@"%0.f",self.userData.settings.difficulty);
     self.currentLevel = 0;
     self.Gamefont = @"TrebuchetMS";
-    [self initialize];
+    self.levelData = [[DataModelLevels alloc]init];
+    self.userData = [[UserDataModel alloc]init];
+    
+    
+    [self initializeGame];
 }
 
--(void)initialize{
+-(void)initializeGame{
     NSLog(@"GameScean/initialize- frame sizes %.0f,%0.f", self.frame.size.width,self.frame.size.height);
     self.numGameState= 6;
-    self.difficulty = 1.5;
     //getting camera node from sks scene
     _nodeCamera = (SKCameraNode *)[self childNodeWithName:@"nodeCamera"];
     
@@ -85,6 +86,9 @@
     //setting physics of ground node
     ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
     ground.physicsBody.dynamic = false;
+    
+    player.isInAir = false;
+    player.cannotJump = true;
     NSLog(@"GameScean/initialize- gameplay node physics set");
     
     //adding nodes to view
@@ -100,7 +104,7 @@
     [self setCameraTracking:player];
     
     NSLog(@"GameScean/initialize- Camera position set");
-    self.levelData = [[DataModelLevels alloc]init];
+    
     [self loadLevel:self.currentLevel];
     
 }
@@ -159,26 +163,21 @@
 #pragma mark - Running Game
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     //Causes player to jump when screen is touched
-
     if(self.gameState == 0){
         NSLog(@"GameScean/touchesBegan- Game start");
         player.cannotJump = false;
         player.isInAir = false;
         [self beginGame];
     } else if (self.gameState == 1){
-        //NSLog(@"GameScean/touchesBegan- Jump");
-        [player jump];
-        
+        [player jump:self.physicsWorld.gravity];
     }else if(self.gameState == 4){
         NSLog(@"GameScean/touchesBegan- Game unpause");
-        player.cannotJump = false;
+        [player pause];
         [self beginGame];
     }else if(self.gameState == 5){
         //move to title menu
         
-        //[GameViewController prepareForSegue:@"GameTitle" sender:@"GameViewController"];
-        
-    
+        [self._parentViewController performSegueWithIdentifier:@"GameTitle" sender:self];
     }else if (self.gameState > self.numGameState - 1){
         NSLog(@"GameScean/touchesBegan- ERROR invalid game state");
     }
@@ -193,7 +192,7 @@
     [self setCameraTracking:player];
     [self alterLevelAlpha:1 includeCamera:true];
     player.physicsBody.dynamic = true;
-    [player moveXPositiveForever:self.difficulty];
+    [player moveXPositiveForever:self.userData.settings.difficulty];
     
 }
 
@@ -245,6 +244,7 @@
             NSLog(@"GameScean/determinGameState- incrementing current level");
             self.currentLevel++;
             [self endGame];
+            
         }else{
             SKLabelNode *completionMsg = [GameLabel lbCompleteMsg:self.Gamefont];
             self.gameState = 5;
@@ -252,7 +252,7 @@
             [_nodeCamera addChild:completionMsg];
             [self alterLevelAlpha:0.25 includeCamera:false];
         }
-        
+    
     }else if( self.gameState == 4){
         NSLog(@"GameScean/determinGameState- paused");
         [self pauseGame];

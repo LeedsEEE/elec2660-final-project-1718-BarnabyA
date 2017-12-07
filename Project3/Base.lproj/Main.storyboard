@@ -20,15 +20,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNA-UF-4aJ">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="627" id="IVx-ey-cHb"/>
-                                    <constraint firstAttribute="height" constant="88" id="g0L-PT-PVs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="75"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9t-tV-H4w">
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="26"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,11 +57,15 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNA-UF-4aJ">
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="75"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Uwm-il-Q8h" firstAttribute="top" secondItem="8t6-qk-96f" secondAttribute="bottom" constant="48" id="1N9-Jm-U7q"/>
-                            <constraint firstItem="tNA-UF-4aJ" firstAttribute="trailing" secondItem="kU9-V1-8q0" secondAttribute="trailingMargin" id="5Ph-Rg-qgZ"/>
                             <constraint firstItem="a8x-Lz-dpL" firstAttribute="trailing" secondItem="8t6-qk-96f" secondAttribute="trailing" id="7gq-5c-d0A"/>
                             <constraint firstItem="KmV-J7-PKv" firstAttribute="leading" secondItem="8t6-qk-96f" secondAttribute="leading" id="A7t-ig-5A3"/>
                             <constraint firstItem="8t6-qk-96f" firstAttribute="top" secondItem="a8x-Lz-dpL" secondAttribute="bottom" constant="2" id="BKR-HQ-qlr"/>
@@ -78,14 +73,11 @@
                             <constraint firstItem="8t6-qk-96f" firstAttribute="top" secondItem="KmV-J7-PKv" secondAttribute="bottom" constant="2" id="ICE-FP-d3T"/>
                             <constraint firstItem="Jh9-JT-keD" firstAttribute="top" secondItem="2dQ-kW-1g2" secondAttribute="bottom" id="Wyc-hZ-B0c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8t6-qk-96f" secondAttribute="trailing" constant="16" id="ccA-b6-TZ2"/>
-                            <constraint firstItem="Uwm-il-Q8h" firstAttribute="top" secondItem="8t6-qk-96f" secondAttribute="bottom" constant="48" id="e1e-mc-2LF"/>
                             <constraint firstItem="8t6-qk-96f" firstAttribute="leading" secondItem="kU9-V1-8q0" secondAttribute="leadingMargin" constant="15" id="eQ2-j7-Sqr"/>
                             <constraint firstItem="8t6-qk-96f" firstAttribute="top" secondItem="m9t-tV-H4w" secondAttribute="bottom" constant="21" id="eZW-dV-8PR"/>
-                            <constraint firstItem="8t6-qk-96f" firstAttribute="leading" secondItem="kU9-V1-8q0" secondAttribute="leadingMargin" constant="15" id="f3e-u4-4WR"/>
-                            <constraint firstItem="tNA-UF-4aJ" firstAttribute="top" secondItem="2dQ-kW-1g2" secondAttribute="bottom" constant="8" id="iLJ-1m-29t"/>
-                            <constraint firstItem="tNA-UF-4aJ" firstAttribute="leading" secondItem="kU9-V1-8q0" secondAttribute="leadingMargin" id="qCI-08-eU3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8t6-qk-96f" secondAttribute="trailing" constant="16" id="qbT-az-slG"/>
+                            <constraint firstItem="tNA-UF-4aJ" firstAttribute="centerX" secondItem="kU9-V1-8q0" secondAttribute="centerX" id="nje-Up-acb"/>
                             <constraint firstItem="Jh9-JT-keD" firstAttribute="leading" secondItem="kU9-V1-8q0" secondAttribute="leadingMargin" id="u0I-Y2-9dQ"/>
+                            <constraint firstItem="tNA-UF-4aJ" firstAttribute="top" secondItem="2dQ-kW-1g2" secondAttribute="bottom" constant="8" id="zVr-3b-GfL"/>
                         </constraints>
                     </view>
                     <connections>
@@ -167,11 +159,11 @@
                             <constraint firstItem="yGf-bI-RbS" firstAttribute="centerY" secondItem="Sb6-Bq-O9f" secondAttribute="centerY" id="FS2-li-2aP"/>
                             <constraint firstItem="kP9-cK-LG8" firstAttribute="top" secondItem="Sb6-Bq-O9f" secondAttribute="bottom" constant="36" id="In3-YC-sHf"/>
                             <constraint firstItem="fB7-kM-9gj" firstAttribute="top" secondItem="1IM-iO-HqK" secondAttribute="bottom" id="JDg-f2-wdX"/>
-                            <constraint firstItem="yGf-bI-RbS" firstAttribute="leading" secondItem="4fN-lh-Tqe" secondAttribute="leadingMargin" constant="8" id="N4Q-UP-6Df"/>
+                            <constraint firstItem="yGf-bI-RbS" firstAttribute="leading" secondItem="4fN-lh-Tqe" secondAttribute="leadingMargin" constant="10" id="N4Q-UP-6Df"/>
                             <constraint firstItem="eS6-Ha-jh1" firstAttribute="top" secondItem="kP9-cK-LG8" secondAttribute="bottom" constant="20" id="Wen-Wz-bgG"/>
                             <constraint firstItem="kP9-cK-LG8" firstAttribute="centerX" secondItem="4fN-lh-Tqe" secondAttribute="centerX" id="aS9-uI-A99"/>
                             <constraint firstItem="yGf-bI-RbS" firstAttribute="width" secondItem="Sb6-Bq-O9f" secondAttribute="width" id="gUj-gR-fhJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Sb6-Bq-O9f" secondAttribute="trailing" constant="20" id="kOc-Sl-arG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sb6-Bq-O9f" secondAttribute="trailing" constant="10" id="kOc-Sl-arG"/>
                             <constraint firstItem="yGf-bI-RbS" firstAttribute="height" secondItem="Sb6-Bq-O9f" secondAttribute="height" id="l2b-Eh-tIe"/>
                         </constraints>
                     </view>

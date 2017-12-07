@@ -7,18 +7,19 @@
 //
 
 #import "SettingsViewController.h"
+#import "TitleViewController.h"
 
-
-@interface SettingsViewController ()
-
-@end
 
 @implementation SettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"Settings %0.f",self.userData.settings.difficulty);
+    NSLog(@"stop test");
+    
     self.lbSettingsDiffuculty.text = [NSString stringWithFormat:@"Difficulty: %0.f", self.slSettingsDifficulty.value];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,9 +29,15 @@
 
 - (IBAction)slSettingsDifficulty:(UISlider *)sender {
     self.lbSettingsDiffuculty.text = [NSString stringWithFormat:@"Difficulty: %0.f", self.slSettingsDifficulty.value];
+    self.userData.settings.difficulty = self.slSettingsDifficulty.value;
 }
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqual: @"SettingsTitle"]){
+        TitleViewController *_titleViewController = [segue destinationViewController];
+        _titleViewController.userData = self.userData;
+    }
+}
 
 /*
 #pragma mark - Navigation

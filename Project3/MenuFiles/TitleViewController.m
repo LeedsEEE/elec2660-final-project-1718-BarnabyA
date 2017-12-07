@@ -17,12 +17,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    //NSLog(@"Title difficulty %0.f",self.userData.settings.difficulty);
+    //NSLog(@"stop test");
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier  isEqual: @"TitleGame"]){
+        GameViewController *_gameViewController = [segue destinationViewController];
+        _gameViewController.userData = self.userData;
+    }else if([segue.identifier  isEqual: @"TitleSettings"]){
+        SettingsViewController *_settingsViewController = [segue destinationViewController];
+        _settingsViewController.userData = self.userData;
+    }
+}
+
 
 /*
 #pragma mark - Navigation

@@ -41,9 +41,13 @@ static const uint32_t bitMaskCategoryGameObject = 0x1 << 1;
     [self runAction:moveXPositiveForever withKey:@"moveXPositiveForever"];
 }
 
--(void)jump
+-(void)jump:(CGVector)gravity
 {
-    SKAction *jump = [SKAction applyImpulse:CGVectorMake(0,120) duration: 0.5];
+    CGVector jumpForce = CGVectorMake(gravity.dx, -gravity.dy*(120/9.8));
+    NSLog(@"gravity: ( %f, %f )",gravity.dx, gravity.dy);
+    NSLog(@"jumpForce: ( %f, %f )",jumpForce.dx, jumpForce.dy);
+    
+    SKAction *jump = [SKAction applyImpulse:jumpForce duration: 0.5];
     if (self.cannotJump == false) {
         [self runAction:jump];
         self.cannotJump = true;

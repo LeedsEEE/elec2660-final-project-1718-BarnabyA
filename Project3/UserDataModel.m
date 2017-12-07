@@ -16,11 +16,13 @@
     if (self) {
         self = [super init];
         self.settings = [[Settings alloc]init];
-        self.settings.difficulty = 1.5;
+        self.settings.difficulty = 2;
         self.settings.music = true;
         self.settings.SFX = true;
         self.highScore = 0;
     }
     return self;
 }
+
+
 @end

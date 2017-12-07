@@ -7,17 +7,20 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "GameViewController.h"
 #import "GameObjects.h"
 #import "player.h"
 #import "DataModelLevels.h"
 #import "GameLabel.h"
+#import "UserDataModel.h"
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate>
 
 @property (strong, nonatomic) DataModelLevels *levelData;
+@property (strong, nonatomic) UserDataModel *userData;
 @property int currentLevel;
-@property float difficulty;
 @property NSString *Gamefont;
+@property UIViewController *_parentViewController;
 
 @end
 

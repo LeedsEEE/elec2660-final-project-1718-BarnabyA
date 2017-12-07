@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameViewController.h"
+#import "UserDataModel.h"
+#import "SettingsViewController.h"
 
 @interface TitleViewController : UIViewController
+
+@property (strong, nonatomic)UserDataModel *userData;
 
 @end

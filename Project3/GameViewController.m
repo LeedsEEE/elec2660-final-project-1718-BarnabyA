@@ -13,10 +13,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"Game View %0.f",self.userData.settings.difficulty);
+    NSLog(@"stop test");
     // Load the SKScene from 'GameScene.sks'
     NSLog(@"GameViewController - GameScene node beninging init");
     GameScene *scene = (GameScene *)[SKScene nodeWithFileNamed:@"GameScene"];
+    scene.userData = self.userData;
     
     // Set the scale mode to scale to fit the window
     scene.scaleMode = SKSceneScaleModeAspectFill;
@@ -51,9 +53,10 @@
     return YES;
 }
 
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     //[self presentViewController:TitleViewController animated:true completion:nil];
-    [self performSegueWithIdentifier:@"GameTitle" sender:sender];
+    
 }
 
 

@@ -8,10 +8,6 @@
 
 #import "DataModelLevels.h"
 
-@interface DataModelLevels()
-
-@end
-
 @implementation DataModelLevels
 
 - (instancetype)init

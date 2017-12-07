@@ -14,6 +14,6 @@
 @property int highScore;
 @property (strong, nonatomic)Settings *settings;
 
--(UserDataModel *)init;
+
 
 @end

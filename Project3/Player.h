@@ -17,7 +17,7 @@
 +(id)player;
 
 -(void)moveXPositiveForever:(float)speed;
--(void)jump;
+-(void)jump:(CGVector)gravity;
 -(void)pause;
 
 @end
