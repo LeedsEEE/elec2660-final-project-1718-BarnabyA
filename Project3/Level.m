@@ -16,17 +16,7 @@
         NSLog(@"Level/init- Running");
         self.numGameObjects = 5;
         self.colour = [UIColor greenColor];
-        /*
-        for (int i = 0; i < self.numGameObjects; i++) {
-            NSNumber *tempNum = @100;
-            [self.gameObjectsXCoord addObject: tempNum];
-            [self.gameObjectsYCoord addObject: tempNum];
-            NSLog(@"Level/init- X coordinates: %lu", self.gameObjectsXCoord.count);
-            NSLog(@"Level/init- Y coordinates: %lu", self.gameObjectsXCoord.count);
-            NSLog(@"Level/init- gameObjects: %lu", self.gameObjectsArray.count);
-        }
-         */
-        //[self generateGameObjects];
+        
     }
     return self;
 }

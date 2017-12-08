@@ -20,15 +20,17 @@
 		946531691FC73F99007A33B8 /* Project3UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531681FC73F99007A33B8 /* Project3UITests.m */; };
 		946531781FC74F31007A33B8 /* GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 946531771FC74F31007A33B8 /* GameObjects.m */; };
 		9496A0F01FD71A3C00DC39E0 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */; };
-		9496A0F31FD7244E00DC39E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */; };
-		F55F12491FD8501400CFD96B /* UserDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F55F12481FD8501400CFD96B /* UserDataModel.m */; };
-		F55F124F1FD8598E00CFD96B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F55F124E1FD8598E00CFD96B /* Settings.m */; };
 		F58674DF1FD96E520058D745 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F58674DE1FD96E520058D745 /* TutorialViewController.m */; };
 		F58674E21FD975D40058D745 /* DefualtSlideShowImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F58674E11FD975D40058D745 /* DefualtSlideShowImage.jpg */; };
 		F5A2EDC81FD4E31800B46594 /* GameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A2EDC71FD4E31800B46594 /* GameLabel.m */; };
 		F5B855A31FCE346B000ADDBE /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A21FCE346B000ADDBE /* Level.m */; };
 		F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */; };
 		F5DAC4F31FD9777D0064F2A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5DAC4F21FD9777D0064F2A6 /* Main.storyboard */; };
+		F5DAC4F91FD997880064F2A6 /* Slide0.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DAC4F41FD997880064F2A6 /* Slide0.png */; };
+		F5DAC4FA1FD997880064F2A6 /* Slide1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DAC4F51FD997880064F2A6 /* Slide1.png */; };
+		F5DAC4FB1FD997880064F2A6 /* Slide2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DAC4F61FD997880064F2A6 /* Slide2.png */; };
+		F5DAC4FC1FD997880064F2A6 /* Slide3.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DAC4F71FD997880064F2A6 /* Slide3.png */; };
+		F5DAC4FD1FD997880064F2A6 /* Slide4.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DAC4F81FD997880064F2A6 /* Slide4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,12 +76,6 @@
 		946531771FC74F31007A33B8 /* GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjects.m; sourceTree = "<group>"; };
 		9496A0EE1FD71A3C00DC39E0 /* TitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleViewController.h; path = MenuFiles/TitleViewController.h; sourceTree = "<group>"; };
 		9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleViewController.m; path = MenuFiles/TitleViewController.m; sourceTree = "<group>"; };
-		9496A0F11FD7244E00DC39E0 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = MenuFiles/SettingsViewController.h; sourceTree = "<group>"; };
-		9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = MenuFiles/SettingsViewController.m; sourceTree = "<group>"; };
-		F55F12471FD8501400CFD96B /* UserDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataModel.h; sourceTree = "<group>"; };
-		F55F12481FD8501400CFD96B /* UserDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataModel.m; sourceTree = "<group>"; };
-		F55F124D1FD8598E00CFD96B /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
-		F55F124E1FD8598E00CFD96B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		F58674DD1FD96E520058D745 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		F58674DE1FD96E520058D745 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		F58674E11FD975D40058D745 /* DefualtSlideShowImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = DefualtSlideShowImage.jpg; path = ../../../Downloads/DefualtSlideShowImage.jpg; sourceTree = "<group>"; };
@@ -90,6 +86,11 @@
 		F5B855A41FCE353D000ADDBE /* DataModelLevels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelLevels.h; sourceTree = "<group>"; };
 		F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelLevels.m; sourceTree = "<group>"; };
 		F5DAC4F21FD9777D0064F2A6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F5DAC4F41FD997880064F2A6 /* Slide0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slide0.png; sourceTree = "<group>"; };
+		F5DAC4F51FD997880064F2A6 /* Slide1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slide1.png; sourceTree = "<group>"; };
+		F5DAC4F61FD997880064F2A6 /* Slide2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slide2.png; sourceTree = "<group>"; };
+		F5DAC4F71FD997880064F2A6 /* Slide3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slide3.png; sourceTree = "<group>"; };
+		F5DAC4F81FD997880064F2A6 /* Slide4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slide4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +159,7 @@
 		9465313C1FC73F98007A33B8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F58674E01FD975B40058D745 /* TutorialImages */,
 				9465313D1FC73F98007A33B8 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -184,15 +186,8 @@
 		948741061FD740550079C585 /* MenuFiles */ = {
 			isa = PBXGroup;
 			children = (
-				F58674E01FD975B40058D745 /* TutorialImages */,
 				9496A0EE1FD71A3C00DC39E0 /* TitleViewController.h */,
 				9496A0EF1FD71A3C00DC39E0 /* TitleViewController.m */,
-				9496A0F11FD7244E00DC39E0 /* SettingsViewController.h */,
-				9496A0F21FD7244E00DC39E0 /* SettingsViewController.m */,
-				F55F12471FD8501400CFD96B /* UserDataModel.h */,
-				F55F12481FD8501400CFD96B /* UserDataModel.m */,
-				F55F124D1FD8598E00CFD96B /* Settings.h */,
-				F55F124E1FD8598E00CFD96B /* Settings.m */,
 				F58674DD1FD96E520058D745 /* TutorialViewController.h */,
 				F58674DE1FD96E520058D745 /* TutorialViewController.m */,
 			);
@@ -202,7 +197,6 @@
 		948741071FD740FB0079C585 /* GameFiles */ = {
 			isa = PBXGroup;
 			children = (
-				948741081FD741580079C585 /* GameAssests */,
 				F5B855A41FCE353D000ADDBE /* DataModelLevels.h */,
 				F5B855A71FCE42E1000ADDBE /* DataModelLevels.m */,
 				F5B855A11FCE346B000ADDBE /* Level.h */,
@@ -221,16 +215,14 @@
 			name = GameFiles;
 			sourceTree = "<group>";
 		};
-		948741081FD741580079C585 /* GameAssests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = GameAssests;
-			sourceTree = "<group>";
-		};
 		F58674E01FD975B40058D745 /* TutorialImages */ = {
 			isa = PBXGroup;
 			children = (
+				F5DAC4F41FD997880064F2A6 /* Slide0.png */,
+				F5DAC4F51FD997880064F2A6 /* Slide1.png */,
+				F5DAC4F61FD997880064F2A6 /* Slide2.png */,
+				F5DAC4F71FD997880064F2A6 /* Slide3.png */,
+				F5DAC4F81FD997880064F2A6 /* Slide4.png */,
 				F58674E11FD975D40058D745 /* DefualtSlideShowImage.jpg */,
 			);
 			name = TutorialImages;
@@ -344,10 +336,15 @@
 			files = (
 				946531431FC73F98007A33B8 /* GameScene.sks in Resources */,
 				F58674E21FD975D40058D745 /* DefualtSlideShowImage.jpg in Resources */,
+				F5DAC4FB1FD997880064F2A6 /* Slide2.png in Resources */,
+				F5DAC4FD1FD997880064F2A6 /* Slide4.png in Resources */,
+				F5DAC4FC1FD997880064F2A6 /* Slide3.png in Resources */,
+				F5DAC4F91FD997880064F2A6 /* Slide0.png in Resources */,
 				946531501FC73F98007A33B8 /* Assets.xcassets in Resources */,
 				F5DAC4F31FD9777D0064F2A6 /* Main.storyboard in Resources */,
 				946531531FC73F98007A33B8 /* LaunchScreen.storyboard in Resources */,
 				946531451FC73F98007A33B8 /* Actions.sks in Resources */,
+				F5DAC4FA1FD997880064F2A6 /* Slide1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,15 +372,12 @@
 				F58674DF1FD96E520058D745 /* TutorialViewController.m in Sources */,
 				F5B855A81FCE42E1000ADDBE /* DataModelLevels.m in Sources */,
 				F5A2EDC81FD4E31800B46594 /* GameLabel.m in Sources */,
-				F55F124F1FD8598E00CFD96B /* Settings.m in Sources */,
 				9465314B1FC73F98007A33B8 /* GameViewController.m in Sources */,
 				946531411FC73F98007A33B8 /* AppDelegate.m in Sources */,
-				F55F12491FD8501400CFD96B /* UserDataModel.m in Sources */,
 				F5B855A31FCE346B000ADDBE /* Level.m in Sources */,
 				946531481FC73F98007A33B8 /* GameScene.m in Sources */,
 				9465313E1FC73F98007A33B8 /* main.m in Sources */,
 				9496A0F01FD71A3C00DC39E0 /* TitleViewController.m in Sources */,
-				9496A0F31FD7244E00DC39E0 /* SettingsViewController.m in Sources */,
 				944D34FA1FC8D2A40041B59C /* Player.m in Sources */,
 				946531781FC74F31007A33B8 /* GameObjects.m in Sources */,
 			);

@@ -10,6 +10,7 @@
 
 @interface GameObjects : SKSpriteNode
 
-+(id)platform;
-//-(void)setAlpha:(CGFloat)alpha;
++(id)platform;  //preset creation of defualt gameobject platfrom
++(id)wall;     //preset creation of wall gameObject
+
 @end

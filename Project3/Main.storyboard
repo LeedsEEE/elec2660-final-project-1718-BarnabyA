@@ -25,35 +25,6 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysi-bR-7ZH">
-                                <color key="backgroundColor" red="0.0" green="0.43818962569999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="190" id="2yy-d4-Qgr"/>
-                                    <constraint firstAttribute="height" constant="81" id="9RK-cb-9st"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="41"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btTitleSettings:" destination="513-6P-mOb" eventType="touchUpInside" id="aZs-bb-SMI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OR-nt-oEG">
-                                <color key="backgroundColor" red="0.0" green="0.43818962569999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="8CL-2z-vjx"/>
-                                    <constraint firstAttribute="width" constant="190" id="xzr-Ki-EZ4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="41"/>
-                                <state key="normal" title="Tutorial">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btTitleTutorial:" destination="513-6P-mOb" eventType="touchUpInside" id="MYF-na-VMP"/>
-                                    <segue destination="Tft-CL-oIM" kind="show" identifier="TitleTutorial" id="Osr-OR-onr"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LX-7G-Pac">
                                 <color key="backgroundColor" red="0.0" green="0.43818962574005127" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -65,53 +36,41 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btTitlePlay:" destination="513-6P-mOb" eventType="touchUpInside" id="673-Sy-wXC"/>
-                                    <segue destination="BV1-FR-VrT" kind="show" identifier="TitleGame" id="61H-v4-Pco"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="TitleGame" id="EcA-Wx-Fw6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OR-nt-oEG">
+                                <color key="backgroundColor" red="0.0" green="0.43818962569999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="41"/>
+                                <state key="normal" title="Tutorial">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Tft-CL-oIM" kind="show" identifier="TitleGame" id="NuJ-Gl-ERe"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1OR-nt-oEG" firstAttribute="centerY" secondItem="Ysi-bR-7ZH" secondAttribute="centerY" id="2DK-bc-Y2E"/>
                             <constraint firstItem="LTr-wx-Lna" firstAttribute="top" secondItem="Uv8-d0-ItL" secondAttribute="bottom" id="62e-TV-2MD"/>
-                            <constraint firstItem="Ysi-bR-7ZH" firstAttribute="leading" secondItem="NjC-U1-JyU" secondAttribute="leadingMargin" constant="30" id="9EQ-iU-f5x"/>
-                            <constraint firstItem="1OR-nt-oEG" firstAttribute="width" secondItem="Ysi-bR-7ZH" secondAttribute="width" id="QzP-Zd-lE3"/>
-                            <constraint firstItem="4LX-7G-Pac" firstAttribute="top" secondItem="Ysi-bR-7ZH" secondAttribute="bottom" constant="30" id="fbz-Lb-vtD"/>
-                            <constraint firstItem="1OR-nt-oEG" firstAttribute="height" secondItem="Ysi-bR-7ZH" secondAttribute="height" id="hU2-ij-IFg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1OR-nt-oEG" secondAttribute="trailing" constant="30" id="k1x-RV-tIL"/>
+                            <constraint firstItem="1OR-nt-oEG" firstAttribute="height" secondItem="4LX-7G-Pac" secondAttribute="height" id="FFu-t7-Ixd"/>
+                            <constraint firstItem="1OR-nt-oEG" firstAttribute="centerY" secondItem="4LX-7G-Pac" secondAttribute="centerY" id="Nbc-yg-k5L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1OR-nt-oEG" secondAttribute="trailing" constant="21" id="Tvs-oO-0Xo"/>
+                            <constraint firstItem="4LX-7G-Pac" firstAttribute="leading" secondItem="NjC-U1-JyU" secondAttribute="leadingMargin" constant="40" id="ggh-hZ-EYu"/>
                             <constraint firstItem="LTr-wx-Lna" firstAttribute="centerX" secondItem="NjC-U1-JyU" secondAttribute="centerX" id="ody-X6-Ve9"/>
-                            <constraint firstItem="AOG-hf-TVN" firstAttribute="top" secondItem="4LX-7G-Pac" secondAttribute="bottom" constant="20" id="vyf-Tj-coA"/>
-                            <constraint firstItem="4LX-7G-Pac" firstAttribute="centerX" secondItem="NjC-U1-JyU" secondAttribute="centerX" id="ybg-Lc-UHb"/>
+                            <constraint firstItem="1OR-nt-oEG" firstAttribute="width" secondItem="4LX-7G-Pac" secondAttribute="width" id="sIw-yZ-D6l"/>
+                            <constraint firstItem="AOG-hf-TVN" firstAttribute="top" secondItem="4LX-7G-Pac" secondAttribute="bottom" constant="102" id="wAv-RI-n5A"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btTitlePlay" destination="4LX-7G-Pac" id="TsF-yB-wgl"/>
-                        <outlet property="btTitleSettings" destination="Ysi-bR-7ZH" id="9uW-HB-1wl"/>
-                        <outlet property="btTitleTutorial" destination="1OR-nt-oEG" id="lN5-XF-uE7"/>
-                        <outlet property="lbTitleTitle" destination="LTr-wx-Lna" id="MHV-IK-OCf"/>
+                        <outlet property="btTitlePlay" destination="4LX-7G-Pac" id="j9a-u8-Noc"/>
+                        <outlet property="btTitleTutorial" destination="1OR-nt-oEG" id="XSG-1d-fwo"/>
+                        <outlet property="lbTitleTitle" destination="LTr-wx-Lna" id="Lm1-xD-COS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aSd-h7-5ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-112.89355322338831" y="-444"/>
-        </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="MBi-q7-Wdw">
-            <objects>
-                <viewController id="fMc-Ut-ykw" customClass="SettingsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8V8-tT-FBO"/>
-                        <viewControllerLayoutGuide type="bottom" id="Xtf-OV-NPk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lPr-OK-Ns2">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WfG-60-qtT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-602" y="-1386"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="sKF-NX-SW1">
@@ -125,47 +84,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutorial: Image 1/3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTB-42-GN5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutorial: Image 1/5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTB-42-GN5">
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="44"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eya-Ie-5Gz">
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
-                                <state key="normal" title="&lt;Back">
-                                    <color key="titleColor" red="0.0" green="0.43818962569999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="513-6P-mOb" kind="show" identifier="TutorialTitle" id="Di1-cd-Y9r"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW1-p4-jBi">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rW1-p4-jBi" secondAttribute="height" multiplier="56:191" id="4U6-GM-bCJ"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="62"/>
+                                <state key="normal" title="&gt;">
+                                    <color key="titleColor" red="0.0" green="0.43818962569999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="btTutorialSlideForward:" destination="Tft-CL-oIM" eventType="touchUpInside" id="VzJ-K0-CDj"/>
+                                    <action selector="btACTutorialSlideForward:" destination="Tft-CL-oIM" eventType="touchUpInside" id="4xq-zd-maD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWw-mN-ANC">
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="62"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" red="0.0" green="0.43818962569999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="btTutorialSlideBack:" destination="Tft-CL-oIM" eventType="touchUpInside" id="q9W-bR-43R"/>
+                                    <action selector="btACTutorialSlideBack:" destination="Tft-CL-oIM" eventType="touchUpInside" id="qQE-CT-9i2"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1xx-WD-wUJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefualtSlideShowImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1xx-WD-wUJ">
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="519" id="785-Ex-pAo"/>
                                     <constraint firstAttribute="width" secondItem="1xx-WD-wUJ" secondAttribute="height" multiplier="173:92" id="SHq-fu-wdZ"/>
+                                    <constraint firstAttribute="height" constant="276" id="stf-no-qIU"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGw-TQ-P6U">
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="&lt;Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="513-6P-mOb" kind="show" identifier="TutorialTitle" id="M7c-IV-kwm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="wGw-TQ-P6U" secondAttribute="leading" id="4Ue-1U-SET"/>
                             <constraint firstItem="ZTB-42-GN5" firstAttribute="top" secondItem="Ijx-xZ-4GB" secondAttribute="bottom" id="5zw-pP-NhC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rW1-p4-jBi" secondAttribute="trailing" id="7WW-oL-V5q"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Eya-Ie-5Gz" secondAttribute="leading" id="Af2-Hx-w1w"/>
-                            <constraint firstItem="Eya-Ie-5Gz" firstAttribute="top" secondItem="Ijx-xZ-4GB" secondAttribute="bottom" id="Mep-JR-FI3"/>
                             <constraint firstItem="kYW-hZ-dMo" firstAttribute="top" secondItem="1xx-WD-wUJ" secondAttribute="bottom" constant="20" id="RuY-yE-lvS"/>
                             <constraint firstItem="rW1-p4-jBi" firstAttribute="centerY" secondItem="1xx-WD-wUJ" secondAttribute="centerY" id="afh-6C-In7"/>
                             <constraint firstItem="ZTB-42-GN5" firstAttribute="centerX" secondItem="b7u-EQ-Z4K" secondAttribute="centerX" id="bjY-Iv-Uc4"/>
@@ -173,19 +139,21 @@
                             <constraint firstItem="1xx-WD-wUJ" firstAttribute="centerX" secondItem="b7u-EQ-Z4K" secondAttribute="centerX" id="d7y-mm-OQy"/>
                             <constraint firstItem="jWw-mN-ANC" firstAttribute="centerY" secondItem="rW1-p4-jBi" secondAttribute="centerY" id="fnd-Jq-nFo"/>
                             <constraint firstItem="1xx-WD-wUJ" firstAttribute="top" secondItem="ZTB-42-GN5" secondAttribute="bottom" constant="7.5" id="lCs-62-egh"/>
+                            <constraint firstItem="wGw-TQ-P6U" firstAttribute="top" secondItem="Ijx-xZ-4GB" secondAttribute="bottom" id="tSy-L5-PqJ"/>
                             <constraint firstItem="jWw-mN-ANC" firstAttribute="height" secondItem="rW1-p4-jBi" secondAttribute="height" id="w5D-lt-smI"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btTutorialBack" destination="Eya-Ie-5Gz" id="TsF-Cf-JSq"/>
-                        <outlet property="btTutorialSlideBack" destination="jWw-mN-ANC" id="Ens-kl-D2A"/>
-                        <outlet property="btTutorialSlideForward" destination="rW1-p4-jBi" id="2AC-OD-gc0"/>
-                        <outlet property="lbTutorialTitle" destination="ZTB-42-GN5" id="oZP-zj-0yw"/>
+                        <outlet property="btOutTutorialBack" destination="wGw-TQ-P6U" id="P9X-Ym-f95"/>
+                        <outlet property="btOutTutorialSlideBack" destination="jWw-mN-ANC" id="eTF-fR-ZqC"/>
+                        <outlet property="btOutTutorialSlideForward" destination="rW1-p4-jBi" id="1rg-mF-s4n"/>
+                        <outlet property="ivOutTutorialSlide" destination="1xx-WD-wUJ" id="pay-ke-Vax"/>
+                        <outlet property="lbOutTutorialTitle" destination="ZTB-42-GN5" id="BjR-vY-Pj7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A86-yW-eCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-113.79310344827587" y="456.80000000000001"/>
+            <point key="canvasLocation" x="-815" y="447"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -206,11 +174,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="814" y="-444"/>
+            <point key="canvasLocation" x="588" y="-1334"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DefualtSlideShowImage.jpg" width="300" height="300"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Di1-cd-Y9r"/>
+        <segue reference="M7c-IV-kwm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.002357660793" green="0.54941093919999995" blue="0.99895268680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

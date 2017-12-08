@@ -12,9 +12,10 @@
 
 @property int currentScore;
 
-+(id)lbScore: (NSString*)font;
-+(id)lbEndMsg:(int)gameState font:(NSString *)font;
-+(id)lbCompleteMsg:(NSString *)font;
--(void) increaseScore;
--(void)resetScore;
++(id)lbScore: (NSString*)font;                          //Creates the score label
++(id)lbEndMsg:(int)gameState font:(NSString *)font;     //Creates the end of level messages
++(id)lbCompleteMsg:(NSString *)font score:(int)score;   //Creates the complete game messages
+-(void)updateScore:(int)Score;                          //updates thye score label
+-(void)increaseScore;                                   //Increments the score
+-(void)resetScore;                                      //Resets the score lable
 @end

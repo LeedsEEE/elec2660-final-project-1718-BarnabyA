@@ -13,11 +13,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Game View %0.f",self.userData.settings.difficulty);
-    NSLog(@"stop test");
     // Load the SKScene from 'GameScene.sks'
     NSLog(@"GameViewController - GameScene node beninging init");
     GameScene *scene = (GameScene *)[SKScene nodeWithFileNamed:@"GameScene"];
+    //adds the parent view pointer to the scene
     scene._parentViewController = self;
     // Set the scale mode to scale to fit the window
     scene.scaleMode = SKSceneScaleModeAspectFill;
@@ -26,8 +25,8 @@
 
     [skView presentScene:scene];
     
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+    //skView.showsFPS = YES;
+    //skView.showsNodeCount = YES;
     NSLog(@"GameViewController - GameScene initialized");
 }
 

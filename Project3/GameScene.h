@@ -12,23 +12,13 @@
 #import "player.h"
 #import "DataModelLevels.h"
 #import "GameLabel.h"
-#import "UserDataModel.h"
+
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate>
 
-@property (strong, nonatomic) DataModelLevels *levelData;
-//@property (strong, nonatomic) UserDataModel *userData;
-@property int currentLevel;
-@property NSString *Gamefont;
-@property UIViewController *_parentViewController;
+@property (strong, nonatomic) DataModelLevels *levelData;   //Stores the level Data to be loaded
+@property int currentLevel;                                 //Stores the current level
+@property NSString *gameFont;                               //Stores the game's font
+@property UIViewController *_parentViewController;          //stores a pointer to the sceanes parent view controller
 
 @end
-
-/*
-To do 02:43 11/29
-    -accout for variable size platfroms future implementation
-    -add EndWin - framework implemented
-    -add EndFail - framework implemented
- -add score - frame work implemented
- -add level transition - semi done
-*/

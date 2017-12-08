@@ -10,16 +10,13 @@
 
 @interface TutorialViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *lbTutorialTitle;
-@property (weak, nonatomic) IBOutlet UIButton *btTutorialBack;
-@property (weak, nonatomic) IBOutlet UIButton *btTutorialSlideBack;
-@property (weak, nonatomic) IBOutlet UIButton *btTutorialSlideForward;
-@property (weak, nonatomic) IBOutlet UIImageView *ivTutorialSlide;
+@property (weak, nonatomic) IBOutlet UILabel *lbOutTutorialTitle;
+@property (weak, nonatomic) IBOutlet UIButton *btOutTutorialBack;
+@property (weak, nonatomic) IBOutlet UIButton *btOutTutorialSlideBack;
+@property (weak, nonatomic) IBOutlet UIButton *btOutTutorialSlideForward;
+@property (weak, nonatomic) IBOutlet UIImageView *ivOutTutorialSlide;
 
-- (IBAction)btTutorialSlideBack:(UIButton *)sender;
-- (IBAction)btTutorialSlideForward:(UIButton *)sender;
-
-
-
+- (IBAction)btACTutorialSlideBack:(UIButton *)sender;
+- (IBAction)btACTutorialSlideForward:(UIButton *)sender;
 
 @end

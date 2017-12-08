@@ -11,6 +11,7 @@
 
 @property int gameState;
 @property int numGameState;
+@property int currentScore;
 @property CGPoint finishCoord;
 
 //lastJumpTimeInterval and lastJumpUpdateTimeInterval have been adapted from the updateWithTimeSinceLastUpdate method
@@ -39,15 +40,19 @@
 
 #pragma mark - level Generation
 - (void)didMoveToView:(SKView *)view {
-    //GameViewController = (UIViewController *)self.view.window.rootViewController;
+    //Sets the
     self.currentLevel = 0;
-    self.Gamefont = @"TrebuchetMS";
+    self.gameFont = @"TrebuchetMS";
     self.levelData = [[DataModelLevels alloc]init];
     
     [self initializeGame];
 }
 
 -(void)initializeGame{
+    //Loades the Games defualt values
+    //creating the player and ground nodes which are referances for may other operations
+    //as well as other operations detailed below
+    
     NSLog(@"GameScean/initialize- frame sizes %.0f,%0.f", self.frame.size.width,self.frame.size.height);
     self.numGameState= 6;
     //getting camera node from sks scene
@@ -60,7 +65,7 @@
     //Setting nodes to correct ids 
     ground = [GameObjects platform];
     player = [Player player];
-    lbSKScore = [GameLabel lbScore:self.Gamefont];
+    lbSKScore = [GameLabel lbScore:self.gameFont];
     NSLog(@"GameScean/initialize- gameplay nodes instances created");
     
     //setting node names
@@ -107,16 +112,20 @@
 }
 
 -(void)setCameraTracking:(SKNode *)targetNode{
+    //sets the camera to track the target the arguemtn node
     [_nodeCamera moveToParent:targetNode];
     _nodeCamera.position = CGPointMake(_nodeCamera.parent.position.x + self.frame.size.width/3, ground.position.y);
     NSLog(@"GameScean/setCameraTracking- Camera tracking %@", targetNode.name);
 }
 
 -(void)loadLevel:(int)levelNum {
+    //loades a specific level from the level array
+    
     Level *tempLevel = [self.levelData.levelsArray objectAtIndex:levelNum];
     GameObjects *tempGameObjectCurrent = [GameObjects platform];
     GameObjects *tempGameObjectPrevious = [GameObjects platform];
     
+    //Removes previous level
     [ground removeAllChildren];
     NSLog(@"GameScean/loadLevel- Loading Level %i", levelNum);
     NSLog(@"GameScean/loadLevel- Loading %lu gameObjects", tempLevel.gameObjectsArray.count);
@@ -126,13 +135,11 @@
         if(tempGameObjectCurrent.parent){
             [tempGameObjectCurrent removeFromParent];
         }
-        NSLog(@"GameScean/loadLevel- gameObject %i",i);
-        NSLog(@"GameScean/loadLevel- properties");
-        NSLog(@"GameScean/loadLevel- name: %@", tempGameObjectCurrent.name);
-        NSLog(@"GameScean/loadLevel- size %0.f, %0.f",tempGameObjectCurrent.size.height,tempGameObjectCurrent.size.width);
-        
+        //sets the bitmask of the gameobjects to register collision
         tempGameObjectCurrent.physicsBody.categoryBitMask = 0x1 << 1;
+        NSLog(@"GameScean/loadLevel- adding gameObject name: %@", tempGameObjectCurrent.name);
         
+        //checks if the gameObject bieng assed is the first or last object so it can be assigned special properties
         if (i == 0){
             tempGameObjectCurrent.position = CGPointMake(ground.size.width/2, tempGameObjectCurrent.position.y);
             [ground addChild:tempGameObjectCurrent];
@@ -140,15 +147,13 @@
             if(i == tempLevel.gameObjectsArray.count - 1){
                 tempGameObjectCurrent.color = [UIColor magentaColor];
                 tempGameObjectCurrent.name = @"gameObjectFinish";
-                tempGameObjectCurrent.physicsBody.categoryBitMask = 0x1 << 2;
+
                 
             }
             [tempGameObjectPrevious addChild:tempGameObjectCurrent];
         }
         tempGameObjectPrevious = tempGameObjectCurrent;
         self.finishCoord = [self convertPoint:tempGameObjectCurrent.position fromNode:tempGameObjectCurrent.parent];
-        //NSLog(@"GameScean/loadLevel- final platfrom coord: ( %0.f, %0.f )",tempGameObjectCurrent.position.x,tempGameObjectCurrent.position.y);
-        
     }
     NSLog(@"GameScean/loadLevel- fianl coord: ( %0.f, %0.f )",self.finishCoord.x,self.finishCoord.y);
     player.physicsBody.dynamic = false;
@@ -159,15 +164,18 @@
 
 #pragma mark - Running Game
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    //Causes player to jump when screen is touched
+    //checks the game state upon a touch event and makes actions accordingly
     if(self.gameState == 0){
+        //Begins a level
         NSLog(@"GameScean/touchesBegan- Game start");
         player.cannotJump = false;
         player.isInAir = false;
         [self beginGame];
     } else if (self.gameState == 1){
+        //causes the player to jump
         [player jump:self.physicsWorld.gravity];
     }else if(self.gameState == 4){
+        //unpauses the game
         NSLog(@"GameScean/touchesBegan- Game unpause");
         [player pause];
         [self beginGame];
@@ -178,11 +186,10 @@
     }else if (self.gameState > self.numGameState - 1){
         NSLog(@"GameScean/touchesBegan- ERROR invalid game state");
     }
-    
 }
 
 -(void)beginGame{
-    //starts the game moving from an inactive state
+    //Starts the game moving from an inactive state
     NSLog(@"GameScean/beginGame- Beginging Game");
     self.gameState = 1;
     [self removeMessages];
@@ -197,15 +204,15 @@
 - (void)update:(NSTimeInterval)currentTime {
     // Handle time delta.
     // If we drop below 60fps, we still want everything to move the same distance.
+    // Used to check the player cannot jump befreo the cool down has finished
     CFTimeInterval timeSinceLast = currentTime - self.lastJumpUpdateTimeInterval;
     self.lastJumpUpdateTimeInterval = currentTime;
     if (timeSinceLast > 1) { // more than a second since last update
         timeSinceLast = 1.0 / 60.0;
         self.lastJumpUpdateTimeInterval = currentTime;
     }
-    
     [self updateWithTimeSinceLastUpdate:timeSinceLast];
-    
+    //Increases the players score if the player has jumped into the air
     if (player.isInAir == true){
         GameLabel *templbSKScore = (GameLabel *)[_nodeCamera childNodeWithName:@"lbSKScore"];
         [templbSKScore increaseScore];
@@ -214,14 +221,15 @@
 
 //updateWithTimeSinceLastUpdate source: https://www.raywenderlich.com/42699/spritekit-tutorial-for-beginners
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLastJump {
+    //Compares the current time cahnge from when the jump was initiated
     self.lastJumpTimeInterval += timeSinceLastJump;
     if (self.lastJumpTimeInterval > 1.5) {
         self.lastJumpTimeInterval = 0;
         player.cannotJump = false;
     }
 }
-
 -(void)didBeginContact:(SKPhysicsContact *)contact{
+    //stops the player from aquireing points after collising with an object
     NSLog(@"contact began");
     player.isInAir = false;
 }
@@ -229,41 +237,49 @@
 #pragma mark - Changing Game State
 
 -(void)determinGameState{
+    //determins the game state and mkaes actions accordingly
     if (player.position.y < ground.position.y){
         //level failed state
         self.gameState = 2;
+        self.currentScore = 0;
         [self endGame];
         
     }else if(player.position.x > self.finishCoord.x && self.gameState != 5) {
         //Level complete state
         self.gameState = 3;
+        self.currentScore = lbSKScore.currentScore;
         if(self.currentLevel < self.levelData.levelsArray.count - 1){
             NSLog(@"GameScean/determinGameState- incrementing current level");
             self.currentLevel++;
             [self endGame];
-            
+            lbSKScore.currentScore = self.currentScore;
         }else{
-            SKLabelNode *completionMsg = [GameLabel lbCompleteMsg:self.Gamefont];
+            SKLabelNode *completionMsg = [GameLabel lbCompleteMsg:self.gameFont score:lbSKScore.self.currentScore];
+            //Game complete state
             self.gameState = 5;
             [player pause];
             [_nodeCamera addChild:completionMsg];
             [self alterLevelAlpha:0.25 includeCamera:false];
         }
-    
     }else if( self.gameState == 4){
+        //pause state
         NSLog(@"GameScean/determinGameState- paused");
         [self pauseGame];
         
     }else if (self.gameState > self.numGameState - 1){
+        //Invalid game state
         NSLog(@"GameScean/determinGameState- ERROR invalid game state");
     }
 }
 
 -(void)didSimulatePhysics{
+    //determins the game state after applying physics
     [self determinGameState];
+    
 }
 
 -(void)pauseGame{
+    //pauses the game
     self.gameState = 4;
     [player removeActionForKey:@"moveXPositiveForever"];
     player.physicsBody.dynamic = false;
@@ -271,27 +287,30 @@
 }
 
 -(void)endGame{
+    //displayes end of game messages upon level completion or failiure
     NSLog(@"GameScean/determinGameState- EndingGame");
     player.isInAir = false;
-    SKLabelNode *lbSKEndMessage = [GameLabel lbEndMsg:self.gameState font: self.Gamefont];
+    SKLabelNode *lbSKEndMessage = [GameLabel lbEndMsg:self.gameState font: self.gameFont];
     [self resetStage];
     [self alterLevelAlpha:0.25 includeCamera:false];
     [_nodeCamera addChild:lbSKEndMessage];
 }
 
 -(void)resetStage{
+    //resets the stage and loads the next level/current
     NSLog(@"GameScean/resetStage- Resetting Scene");
-    [lbSKScore resetScore];
     player.physicsBody.dynamic = false;
     [player removeAllActions];
     player.position = CGPointMake(0, 0);
     [self removeChildChain:ground];
     [ground removeAllChildren];
     [self loadLevel:self.currentLevel];
+    [lbSKScore updateScore:self.currentScore];
     self.gameState = 0;
 }
 
 -(void)removeChildChain:(SKNode *)targetNode{
+    //recursive method that iterates down the child chail and removes the children as it returns to the top
     SKNode *tempNode = [[SKNode alloc]init];
     if (targetNode.children != NULL && targetNode.children.count != 0 ){
         NSLog(@"GameScene/removeChildChain- Target name: %@",targetNode.name);
@@ -300,12 +319,12 @@
         NSLog(@"GameScene/removeChildChain-removing from parent: %@",tempNode.name);
         [tempNode removeFromParent];
     }else{
-        NSLog(@"child chain end: %@",targetNode.name);
+        NSLog(@"Child chain end: %@",targetNode.name);
     }
 }
 
 -(void)alterLevelAlpha:(float)alpha includeCamera:(bool)includeCamera{
-    //recursive function that iterates down child chain until final child then changes all nodes alpha to original input
+    //changes the alpha of nodes in scean to more clearly display messages
     if (includeCamera  == false){
         [_nodeCamera moveToParent:self];
     }else if (includeCamera  == true){
@@ -316,118 +335,10 @@
 }
 
 -(void)removeMessages{
+    //Removes messages from the scena
+    NSLog(@"GameScean/removeMessages");
     [_nodeCamera removeAllChildren];
     [_nodeCamera addChild:lbSKScore];
+    
 }
-
-    /*
-     -(void)loadTestLevel{
-     //loades a basic level for testing
-     
-     NSLog(@"GameScean/loadTestLevel- Loading Test Level");
-     
-     GameObjects *platform0;
-     GameObjects *platform1;
-     
-     platform0 = [GameObjects platform];
-     platform1 = [GameObjects platform];
-     
-     platform0.name = @"platform0";
-     platform1.name = @"platform1";
-     
-     platform0.size = CGSizeMake(150, ground.size.height);
-     platform1.size = platform0.size;
-     
-     platform0.position = CGPointMake(ground.position.x + ground.size.width/2 + platform0.size.width/2,
-     ground.position.y + 100);
-     platform1.position = CGPointMake(platform0.position.x + platform0.size.width,
-     ground.position.y);
-     
-     platform0.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform0.size];
-     platform0.physicsBody.dynamic = false;
-     platform1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform1.size];
-     platform1.physicsBody.dynamic = false;
-     
-     [self addChild:platform0];
-     NSLog(@"GameScean/loadTestLevel- platform0 node added to frame");
-     [self addChild:platform1];
-     NSLog(@"GameScean/loadTestLevel- platform1 node added to frame");
-     }
-     */
-
-/*
-//Defualt code
- SKShapeNode *_spinnyNode;
- SKLabelNode *_label;
- }
- 
- - (void)didMoveToView:(SKView *)view {
- // Setup your scene here
- 
- // Get label node from scene and store it for use later
- _label = (SKLabelNode *)[self childNodeWithName:@"//helloLabel"];
- 
- _label.alpha = 0.0;
- [_label runAction:[SKAction fadeInWithDuration:2.0]];
- 
- CGFloat w = (self.size.width + self.size.height) * 0.05;
- 
- // Create shape node to use during mouse interaction
- _spinnyNode = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(w, w) cornerRadius:w * 0.3];
- _spinnyNode.lineWidth = 2.5;
- 
- [_spinnyNode runAction:[SKAction repeatActionForever:[SKAction rotateByAngle:M_PI duration:1]]];
- [_spinnyNode runAction:[SKAction sequence:@[
- [SKAction waitForDuration:0.5],
- [SKAction fadeOutWithDuration:0.5],
- [SKAction removeFromParent],
- ]]];
- }
- 
- 
- - (void)touchDownAtPoint:(CGPoint)pos {
- SKShapeNode *n = [_spinnyNode copy];
- n.position = pos;
- n.strokeColor = [SKColor greenColor];
- [self addChild:n];
- }
- 
- - (void)touchMovedToPoint:(CGPoint)pos {
- SKShapeNode *n = [_spinnyNode copy];
- n.position = pos;
- n.strokeColor = [SKColor blueColor];
- [self addChild:n];
- }
- 
- - (void)touchUpAtPoint:(CGPoint)pos {
- SKShapeNode *n = [_spinnyNode copy];
- n.position = pos;
- n.strokeColor = [SKColor redColor];
- [self addChild:n];
- }
- 
- - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
- // Run 'Pulse' action from 'Actions.sks'
- [_label runAction:[SKAction actionNamed:@"Pulse"] withKey:@"fadeInOut"];
- 
- for (UITouch *t in touches) {[self touchDownAtPoint:[t locationInNode:self]];}
- }
- - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
- for (UITouch *t in touches) {[self touchMovedToPoint:[t locationInNode:self]];}
- }
- - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
- for (UITouch *t in touches) {[self touchUpAtPoint:[t locationInNode:self]];}
- }
- - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
- for (UITouch *t in touches) {[self touchUpAtPoint:[t locationInNode:self]];}
- }
- 
- 
- -(void)update:(CFTimeInterval)currentTime {
- // Called before each frame is rendered
- }
-
-*/
-
-
 @end
